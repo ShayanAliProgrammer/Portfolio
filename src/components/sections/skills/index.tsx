@@ -209,7 +209,10 @@ export default function SkillsSection() {
       <div className="px-2 pt-10">
         <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-xl border md:grid-cols-2 lg:grid-cols-3">
           {skills.map(({ title, description, icon }, index) => (
-            <div className="group/box relative flex flex-col py-10 hover:bg-card hover:text-card-foreground">
+            <div
+              className="group/box relative flex flex-col py-10 hover:bg-card hover:text-card-foreground"
+              key={index}
+            >
               <div className="relative z-10 mb-4 px-10 text-muted-foreground">
                 {icon}
               </div>
