@@ -4,8 +4,7 @@ import { PrismaClient } from "@prisma/client";
 
 import { env } from "~/env";
 
-const createPrismaClient = (adapter: PrismaLibSQL) =>
-{
+const createPrismaClient = (adapter: PrismaLibSQL) => {
 
   return new PrismaClient({
     log:

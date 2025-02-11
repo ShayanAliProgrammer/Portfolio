@@ -1,3 +1,161 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root,
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+
+    --primary: 0 0% 3.9%;
+    /* --primary: 160 100% 69%; */
+    /* --primary: 131 43% 57%; */
+    /* --primary: 210 100% 66%; */
+    /* --primary: 341 90% 67%; */
+    /* --primary-foreground: 160 100% 9%; */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 0 0% 3.9%;
+    /* --ring: 160 100% 69%; */
+    /* --ring: 131 43% 57%; */
+    /* --ring: 210 100% 66%; */
+    /* --ring: 341 90% 67%; */
+    --chart-1: 0 0% 3.9%;
+    /* --chart-1: 160 100% 69%; */
+    /* --chart-1: 131 43% 57%; */
+    /* --chart-1: 210 100% 66%; */
+    /* --chart-1: 341 90% 67%; */
+    --chart-2: 160 30% 25%;
+    --chart-3: 249 15% 24%;
+    --chart-4: 160 30% 28%;
+    --chart-5: 160 103% 69%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+
+    --primary: 0 0% 100%;
+    /* --primary: 160 100% 69%; */
+    /* --primary: 131 43% 57%; */
+    /* --primary: 210 100% 66%; */
+    /* --primary: 341 90% 67%; */
+    /* --primary-foreground: 160 100% 9%; */
+    --primary-foreground: 0 0% 3.9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 0 0% 100%;
+    /* --ring: 160 100% 69%; */
+    /* --ring: 131 43% 57%; */
+    /* --ring: 210 100% 66%; */
+    /* --ring: 341 90% 67%; */
+    --chart-1: 0 0% 100%;
+    /* --chart-1: 160 100% 69%; */
+    /* --chart-1: 131 43% 57%; */
+    /* --chart-1: 210 100% 66%; */
+    /* --chart-1: 341 90% 67%; */
+    --chart-2: 160 30% 25%;
+    --chart-3: 249 15% 24%;
+    --chart-4: 160 30% 28%;
+    --chart-5: 160 103% 69%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-secondary selection:text-secondary-foreground;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    line-height: 1.5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .system {
+      @apply dark;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    .system {
+      @apply light;
+    }
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  ::-webkit-scrollbar {
+    @apply !size-3 bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply !size-2 rounded-sm bg-muted;
+  }
+}

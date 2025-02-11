@@ -1,8 +1,11 @@
 import "~/styles/globals.css";
 
+import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
+import { cookies } from "next/headers";
+import Header from "~/components/header";
 import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
@@ -11,13 +14,21 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const theme = (await cookies()).get("theme")?.value;
+
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${theme}`}
+    >
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <Header />
+          {children}
+        </TRPCReactProvider>
       </body>
     </html>
   );
