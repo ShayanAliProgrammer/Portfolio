@@ -16,7 +16,7 @@ const Image = React.memo(function Image({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded bg-muted transition-all",
+        "relative overflow-hidden rounded-md bg-muted transition-all",
         containerClassName,
         `w-[${props.width}x] h-[${props.height}px]`,
       )}
@@ -35,7 +35,7 @@ const Image = React.memo(function Image({
       <NextImage
         {...props}
         className={cn(
-          "relative z-10 transition-all duration-300",
+          "relative z-10 size-full object-cover object-center transition-all duration-300",
           {
             "opacity-0": !isLoaded,
             "!opacity-100": isLoaded,

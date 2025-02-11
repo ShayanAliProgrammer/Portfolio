@@ -36,17 +36,26 @@ export default function Header() {
 
   const [isOpen, setOpen] = useState(false);
   return (
-    <header className="z-40 w-full border-b-2 border-dotted bg-background/50 px-5 backdrop-blur-sm">
-      <div className="container relative mx-auto flex min-h-20 flex-row items-center gap-4 lg:grid lg:grid-cols-2">
-        <div className="flex items-center gap-10">
+    <header className="z-40 w-full px-5 py-3">
+      <div className="container relative mx-auto flex flex-row items-center gap-x-4 lg:grid lg:grid-cols-2">
+        <div className="flex items-center gap-x-10">
           <div className="flex lg:justify-center">
-            <Image
-              src={"/shayan-4k-2.jpeg"}
-              alt="Shayan"
-              width={100}
-              height={100}
-              containerClassName="rounded-full size-12"
-            />
+            <Link href="/">
+              <Image
+                src={"/shayan-4k-2.jpeg"}
+                alt="Shayan"
+                width={100}
+                height={100}
+                containerClassName="border dark:hidden size-12"
+              />
+              <Image
+                src={"/shayan-4k-2-dark.jpg"}
+                alt="Shayan"
+                width={100}
+                height={100}
+                containerClassName="border dark:inline-block hidden size-12"
+              />
+            </Link>
           </div>
 
           <div className="hidden flex-row items-center justify-start gap-4 lg:flex">
