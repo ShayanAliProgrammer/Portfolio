@@ -1,4 +1,4 @@
-import { Menu, MoveRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import {
@@ -48,14 +48,14 @@ export default function Header() {
                 alt="Shayan"
                 width={100}
                 height={100}
-                containerClassName="border dark:hidden size-12"
+                containerClassName="rounded-full border dark:hidden size-12"
               />
               <Image
                 src={"/shayan-4k-2-dark.jpg"}
                 alt="Shayan"
                 width={100}
                 height={100}
-                containerClassName="border dark:inline-block hidden size-12"
+                containerClassName="rounded-full border dark:inline-block hidden size-12"
               />
             </Link>
           </div>
@@ -113,21 +113,13 @@ export default function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-screen">
+            <DropdownMenuContent className="mr-4 mt-4">
               {navigationItems.map((item) => (
                 <DropdownMenuItem key={item.title} asChild>
                   {item.href ? (
-                    <Link
-                      href={item.href}
-                      className="flex w-full items-center justify-between"
-                    >
-                      <span className="text-lg">{item.title}</span>
-                      <MoveRight className="h-4 w-4 stroke-1 text-muted-foreground" />
-                    </Link>
+                    <Link href={item.href}>{item.title}</Link>
                   ) : (
-                    <div className="flex w-full items-center justify-between">
-                      <span className="text-lg">{item.title}</span>
-                    </div>
+                    <div>{item.title}</div>
                   )}
                 </DropdownMenuItem>
               ))}
