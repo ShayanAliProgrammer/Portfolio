@@ -6,8 +6,6 @@ export default function HeroSection() {
       id="home"
       className="relative flex flex-col items-center justify-between"
     >
-      {/* <div className="h-24 border-r-2 border-dotted" /> */}
-
       <div className="z-10 w-full border-y-2 border-dotted px-5 md:px-10 lg:px-20">
         <h1 className="border-x-2 border-dotted bg-gradient-to-t from-muted-foreground via-foreground/70 to-foreground bg-clip-text px-1 py-5 text-center text-4xl text-transparent md:text-5xl lg:text-6xl">
           Welcome to the new Era of Web Development
@@ -16,7 +14,7 @@ export default function HeroSection() {
 
       <div className="z-10 w-full border-b-2 border-dotted px-5 md:px-10 lg:px-20">
         <div className="border-x-2 border-dotted px-1 py-8 text-center text-base lg:text-lg">
-          <p className="mx-auto block max-w-3xl leading-relaxed text-muted-foreground md:leading-loose">
+          <p className="mx-auto block max-w-3xl px-2 leading-relaxed text-muted-foreground md:leading-loose">
             Hello, I'm a seasoned full-stack web developer specializing in{" "}
             <span className="text-foreground">T3 stack</span> and{" "}
             <span className="text-foreground">Next.js</span>, delivering robust,{" "}

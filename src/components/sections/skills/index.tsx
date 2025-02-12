@@ -200,31 +200,32 @@ export default function SkillsSection() {
   return (
     <section
       id="home"
-      className="flex flex-col items-center justify-between py-10"
+      className="relative flex flex-col items-center justify-between py-10"
     >
       <h2 className="bg-gradient-to-t from-muted-foreground via-foreground/70 to-foreground bg-clip-text text-center text-3xl text-transparent md:text-4xl lg:text-5xl">
         My Skills
       </h2>
 
-      <div className="px-2 pt-10">
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 overflow-hidden rounded-xl border md:grid-cols-2 lg:grid-cols-3">
+      <div className="border-b-2 border-dotted px-2 pt-10">
+        <div className="z-10 mx-auto grid grid-cols-1 justify-around md:grid-cols-2 lg:grid-cols-3">
           {skills.map(({ title, description, icon }, index) => (
-            <div
-              className="group/box relative flex flex-col py-10 hover:bg-card hover:text-card-foreground"
-              key={index}
-            >
-              <div className="relative z-10 mb-4 px-10 text-muted-foreground">
-                {icon}
-              </div>
+            <div key={index} className="size-full flex-shrink-0">
+              <div className="absolute inset-x-0 w-full border-b-2 border-dotted" />
+              <div className="absolute inset-5 bottom-0 top-0 h-full border-x-2 border-dotted" />
 
-              <h3 className="z-10 mb-2 w-max bg-gradient-to-t from-muted-foreground via-foreground/70 to-foreground bg-clip-text px-10 text-lg font-bold text-transparent">
-                <span className="inline-block transition duration-200">
-                  {title}
-                </span>
-              </h3>
-              <p className="relative z-10 px-10 text-sm text-muted-foreground">
-                {description}
-              </p>
+              <div className="group/box relative z-10 flex flex-col overflow-hidden bg-transparent py-10">
+                <div className="relative z-10 mb-4 px-10 text-muted-foreground">
+                  {icon}
+                </div>
+                <h3 className="z-10 mb-2 w-max bg-gradient-to-t from-muted-foreground via-foreground/70 to-foreground bg-clip-text px-10 text-lg font-bold text-transparent">
+                  <span className="inline-block transition duration-200">
+                    {title}
+                  </span>
+                </h3>
+                <p className="relative z-10 px-10 text-sm text-muted-foreground">
+                  {description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

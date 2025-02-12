@@ -13,7 +13,7 @@
     --popover-foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
-    --border: 0 0% 89.8%;
+    --border: 0 0% 91.8%;
     --input: 0 0% 89.8%;
 
     --primary: 0 0% 3.9%;
@@ -57,7 +57,7 @@
     --popover-foreground: 0 0% 98%;
     --card: 0 0% 14.9%;
     --card-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
+    --border: 0 0% 16.9%;
     --input: 0 0% 14.9%;
 
     --primary: 0 0% 100%;
@@ -158,7 +158,7 @@
   }
 
   ::-webkit-scrollbar {
-    @apply !size-3 bg-transparent;
+    @apply !size-2 bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
     @apply !size-2 rounded-sm bg-muted;

@@ -5,7 +5,7 @@ import { HydrateClient } from "~/trpc/server";
 export default function Home() {
   return (
     <HydrateClient>
-      <main>
+      <main className="border-x">
         <HeroSection />
 
         <SkillsSection />
