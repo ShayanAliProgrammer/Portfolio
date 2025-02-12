@@ -172,9 +172,15 @@ export function ProjectCards({ repos, total }: ProjectCardsProps) {
           >
             <div className="flex h-full flex-col justify-between p-6">
               <div>
-                <h3 className="mb-3 bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-xl font-bold text-transparent">
-                  {repo.name}
-                </h3>
+                <a
+                  href={repo.html_url}
+                  target="_blank"
+                  className="underline-offset-8 hover:underline"
+                >
+                  <h3 className="mb-3 bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-xl font-bold text-transparent">
+                    {repo.name}
+                  </h3>
+                </a>
                 <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                   {repo.description || "No description available"}
                 </p>
