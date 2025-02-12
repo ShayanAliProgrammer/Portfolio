@@ -27,7 +27,7 @@ export default function Header() {
 
     {
       title: "Skills",
-      href: "/skills",
+      href: "/#skills",
       description: "Skills that Shayan Ali have",
     },
     {
@@ -38,7 +38,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="z-40 w-full px-5 py-3">
+    <header className="sticky top-0 z-40 w-full border-b bg-accent/40 px-5 py-3 backdrop-blur-sm">
       <div className="container relative mx-auto flex flex-row items-center gap-x-4 lg:grid lg:grid-cols-2">
         <div className="flex items-center gap-x-10">
           <div className="flex lg:justify-center">
@@ -67,9 +67,11 @@ export default function Header() {
                   <NavigationMenuItem key={item.title}>
                     {item.href ? (
                       <>
-                        <NavigationMenuLink>
-                          <Button variant="ghost">{item.title}</Button>
-                        </NavigationMenuLink>
+                        <Button variant="ghost" asChild>
+                          <NavigationMenuLink href={item.href}>
+                            {item.title}
+                          </NavigationMenuLink>
+                        </Button>
                       </>
                     ) : (
                       <>

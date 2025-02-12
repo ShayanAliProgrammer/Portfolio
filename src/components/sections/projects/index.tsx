@@ -69,10 +69,12 @@ async function getRepos(
 
 interface ProjectsSectionProps {
   searchParams: Promise<{ page?: string }>;
+  heading?: "h1" | "h2";
 }
 
 export default async function ProjectsSection({
   searchParams,
+  heading: Heading = "h2",
 }: ProjectsSectionProps) {
   const params = await searchParams;
   const currentPage = Number(params.page) || 1;
@@ -81,9 +83,9 @@ export default async function ProjectsSection({
   return (
     <section className="py-10" id="projects">
       <div className="text-center">
-        <h2 className="mb-4 bg-gradient-to-t from-muted-foreground via-foreground/70 to-foreground bg-clip-text text-3xl font-bold text-transparent">
+        <Heading className="mb-4 bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-3xl font-bold text-transparent">
           Featured Projects
-        </h2>
+        </Heading>
         <p className="mx-auto max-w-sm text-muted-foreground">
           Some of my projects that I am working on, from my{" "}
           <a

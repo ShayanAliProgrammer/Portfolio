@@ -98,6 +98,10 @@
     line-height: 1.5;
   }
 
+  svg {
+    @apply transition-all duration-150;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
   }

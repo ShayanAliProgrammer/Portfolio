@@ -3,8 +3,9 @@ import "~/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-
 import { cookies } from "next/headers";
+import NextTopLoader from "nextjs-toploader";
+
 import Footer from "~/components/footer";
 import Header from "~/components/header";
 import { TRPCReactProvider } from "~/trpc/react";
@@ -27,6 +28,8 @@ export default async function RootLayout({
     >
       <body>
         <TRPCReactProvider>
+          <NextTopLoader color="hsl(var(--primary))" showSpinner={false} />
+
           <Header />
 
           {children}

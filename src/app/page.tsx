@@ -1,7 +1,6 @@
 import HeroSection from "~/components/sections/hero";
 import ProjectsSection from "~/components/sections/projects";
 import SkillsSection from "~/components/sections/skills";
-import { HydrateClient } from "~/trpc/server";
 
 export default function Home({
   searchParams,
@@ -9,14 +8,12 @@ export default function Home({
   searchParams: Promise<{ page?: string }>;
 }) {
   return (
-    <HydrateClient>
-      <main className="border-x">
-        <HeroSection />
+    <main className="border-x">
+      <HeroSection />
 
-        <SkillsSection />
+      <SkillsSection />
 
-        <ProjectsSection searchParams={searchParams} />
-      </main>
-    </HydrateClient>
+      <ProjectsSection searchParams={searchParams} />
+    </main>
   );
 }

@@ -19,6 +19,7 @@ import {
   SiPython,
   SiReact,
   SiShadcnui,
+  SiSqlite,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
@@ -139,6 +140,9 @@ const icons: Record<string, JSX.Element> = {
   turso: (
     <TursoLogo className="text-muted-foreground group-hover/box:text-[#4FF8D2]" />
   ),
+  sqlite: (
+    <SiSqlite className="text-muted-foreground group-hover/box:text-[#003B57]" />
+  ),
 };
 
 interface ProjectCardsProps {
@@ -156,16 +160,19 @@ export function ProjectCards({ repos, total }: ProjectCardsProps) {
   const currentRepos = repos.slice(startIndex, endIndex);
 
   return (
-    <div className="z-10 mx-auto w-full px-2 pt-10" id="project-cards">
+    <div
+      className="z-10 mx-auto w-full max-w-7xl px-5 pt-10"
+      id="project-cards"
+    >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {currentRepos.map((repo) => (
           <div
             key={repo.id}
-            className="group/box relative z-10 flex flex-col overflow-hidden rounded-lg border bg-card shadow-lg transition-all duration-150 hover:bg-accent/50"
+            className="group/box relative z-10 flex flex-col overflow-hidden rounded-lg border bg-card/50 transition-all duration-150 hover:bg-card/40"
           >
             <div className="flex h-full flex-col justify-between p-6">
               <div>
-                <h3 className="mb-3 bg-gradient-to-t from-muted-foreground via-foreground/70 to-foreground bg-clip-text text-xl font-bold text-transparent">
+                <h3 className="mb-3 bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-xl font-bold text-transparent">
                   {repo.name}
                 </h3>
                 <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
