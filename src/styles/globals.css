@@ -94,7 +94,7 @@
 
 @layer base {
   * {
-    @apply border-border transition;
+    @apply scroll-smooth border-border;
     line-height: 1.5;
   }
 

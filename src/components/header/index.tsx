@@ -1,9 +1,12 @@
-"use client";
-
-import { Menu, MoveRight, X } from "lucide-react";
+import { Menu, MoveRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import Image from "../ui/image";
 import {
   NavigationMenu,
@@ -34,7 +37,6 @@ export default function Header() {
     },
   ];
 
-  const [isOpen, setOpen] = useState(false);
   return (
     <header className="z-40 w-full px-5 py-3">
       <div className="container relative mx-auto flex flex-row items-center gap-x-4 lg:grid lg:grid-cols-2">
@@ -105,30 +107,32 @@ export default function Header() {
           <Button>Resume</Button>
         </div>
         <div className="flex shrink items-end justify-end lg:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setOpen(!isOpen)}>
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-          {isOpen && (
-            <div className="container absolute inset-x-0 top-[80px] flex w-full max-w-full flex-col gap-8 border-t bg-accent px-5 py-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-screen">
               {navigationItems.map((item) => (
-                <div key={item.title}>
-                  <div className="flex flex-col gap-2">
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        className="flex items-center justify-between"
-                      >
-                        <span className="text-lg">{item.title}</span>
-                        <MoveRight className="h-4 w-4 stroke-1 text-muted-foreground" />
-                      </Link>
-                    ) : (
-                      <p className="text-lg">{item.title}</p>
-                    )}
-                  </div>
-                </div>
+                <DropdownMenuItem key={item.title} asChild>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="flex w-full items-center justify-between"
+                    >
+                      <span className="text-lg">{item.title}</span>
+                      <MoveRight className="h-4 w-4 stroke-1 text-muted-foreground" />
+                    </Link>
+                  ) : (
+                    <div className="flex w-full items-center justify-between">
+                      <span className="text-lg">{item.title}</span>
+                    </div>
+                  )}
+                </DropdownMenuItem>
               ))}
-            </div>
-          )}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>

@@ -46,12 +46,15 @@ export default function ThemeToggler() {
       <Button
         size="icon"
         variant="ghost"
-        className={cn("size-8 rounded-full dark:bg-transparent", {
-          "bg-secondary dark:bg-transparent": cookies.theme == "light",
-        })}
+        className={cn(
+          "[.dark_&,.system_&]:bg-transparent size-8 rounded-full",
+          {
+            "bg-secondary dark:bg-transparent": cookies.theme == "light",
+          },
+        )}
         onClick={() => handleThemeChange("light")}
       >
-        <SunIcon className="size-4" />
+        <SunIcon />
       </Button>
 
       <Button
@@ -60,7 +63,7 @@ export default function ThemeToggler() {
         className="size-8 rounded-full [.system_&]:bg-secondary"
         onClick={() => handleThemeChange("system")}
       >
-        <HiDesktopComputer className="size-4" />
+        <HiDesktopComputer />
       </Button>
 
       <Button
@@ -69,7 +72,7 @@ export default function ThemeToggler() {
         className="size-8 rounded-full dark:bg-secondary"
         onClick={() => handleThemeChange("dark")}
       >
-        <MoonStarIcon className="size-4" />
+        <MoonStarIcon />
       </Button>
     </div>
   );

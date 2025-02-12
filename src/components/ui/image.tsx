@@ -1,3 +1,5 @@
+"use client";
+
 import { ImageProps, default as NextImage } from "next/image";
 import React, { useState } from "react";
 import { cn } from "~/lib/utils";
@@ -16,7 +18,7 @@ const Image = React.memo(function Image({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-md bg-muted transition-all",
+        "relative size-full overflow-hidden rounded-md bg-muted transition-all",
         containerClassName,
         `w-[${props.width}x] h-[${props.height}px]`,
       )}
@@ -35,7 +37,7 @@ const Image = React.memo(function Image({
       <NextImage
         {...props}
         className={cn(
-          "relative z-10 size-full object-cover object-center transition-all duration-300",
+          "relative z-10 size-full object-cover object-center transition-all duration-150",
           {
             "opacity-0": !isLoaded,
             "!opacity-100": isLoaded,

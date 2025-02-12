@@ -5,6 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { cookies } from "next/headers";
+import Footer from "~/components/footer";
 import Header from "~/components/header";
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -27,7 +28,10 @@ export default async function RootLayout({
       <body>
         <TRPCReactProvider>
           <Header />
+
           {children}
+
+          <Footer />
         </TRPCReactProvider>
       </body>
     </html>
