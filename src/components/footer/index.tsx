@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   RiBlueskyFill,
   RiFacebookFill,
@@ -32,19 +33,19 @@ export default function Footer() {
 
         <nav className="flex items-center gap-5">
           <Button asChild variant="ghost" size="sm">
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </Button>
 
           <Button asChild variant="ghost" size="sm">
-            <a href="/#skills">Skills</a>
+            <Link href="/#skills">Skills</Link>
           </Button>
 
           <Button asChild variant="ghost" size="sm">
-            <a href="/projects">Projects</a>
+            <Link href="/projects">Projects</Link>
           </Button>
 
           <Button asChild variant="ghost" size="sm">
-            <a href="/blog">Blog</a>
+            <Link href="/blog">Blog</Link>
           </Button>
         </nav>
 
