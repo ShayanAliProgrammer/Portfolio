@@ -13,18 +13,18 @@ export default function Footer() {
   return (
     <footer className="border-t-2 border-dashed bg-background py-20 text-foreground">
       <div className="container mx-auto flex flex-col items-center gap-6">
-        <div className="size-20 overflow-hidden rounded-full border-2">
+        <div className="flex size-20 overflow-hidden rounded-full border-2">
           <Image
             src="/shayan-4k-2.jpeg"
-            className="dark:hidden"
+            containerClassName="dark:hidden"
             alt="Shayan"
             width={80}
             height={80}
           />
           <Image
-            src="/shayan-4k-2-dark.jpeg"
+            src="/shayan-4k-2-dark.jpg"
             alt="Shayan"
-            className="hidden dark:inline-block"
+            containerClassName="hidden dark:inline-block"
             width={80}
             height={80}
           />
