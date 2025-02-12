@@ -33,7 +33,7 @@ export default function Footer() {
 
         <nav className="flex items-center gap-5">
           <Button asChild variant="ghost" size="sm">
-            <Link href="/">Home</Link>
+            <Link href="/#home">Home</Link>
           </Button>
 
           <Button asChild variant="ghost" size="sm">
