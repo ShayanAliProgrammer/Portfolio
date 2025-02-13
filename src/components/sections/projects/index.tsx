@@ -89,16 +89,6 @@ export default React.memo(async function ProjectsSection({
         <Heading className="mb-4 bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-3xl font-bold text-transparent">
           Featured Projects
         </Heading>
-        <p className="mx-auto max-w-sm text-muted-foreground">
-          Some of my projects that I am working on, from my{" "}
-          <a
-            className="text-foreground underline underline-offset-8"
-            href={`https://github.com/${env.GITHUB_USERNAME ?? env.NEXT_PUBLIC_GITHUB_USERNAME}/`}
-            target="_blank"
-          >
-            Github account
-          </a>
-        </p>
       </div>
 
       <ProjectCards repos={repos} total={total} />

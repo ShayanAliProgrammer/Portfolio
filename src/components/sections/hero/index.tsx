@@ -17,9 +17,9 @@ export default function HeroSection() {
         <div className="border-x px-1 py-8 text-center text-lg lg:text-xl">
           <p className="mx-auto block max-w-4xl px-2 leading-relaxed text-muted-foreground md:leading-loose">
             Hello, I'm a seasoned full-stack web developer specializing in{" "}
-            <span className="text-foreground">T3 stack</span> and{" "}
-            <span className="text-foreground">Next.js</span>, delivering robust,{" "}
-            <span className="text-foreground">SEO-optimized</span> web
+            <span className="text-foreground">Next.js</span> and{" "}
+            <span className="text-foreground">T3 stack</span>, delivering
+            robust, <span className="text-foreground">SEO-optimized</span> web
             solutions. If you're seeking a{" "}
             <span className="text-foreground">high-performance</span>,{" "}
             <span className="text-foreground">cost-efficient</span> website

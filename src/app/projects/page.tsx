@@ -13,7 +13,7 @@ export default function Home({
       <main className="border-x">
         <Suspense
           fallback={
-            <div className="py-20">
+            <div className="grid place-items-center px-5 py-20">
               <Loader2Icon className="size-10 animate-spin" />
             </div>
           }
