@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import React from "react";
 import {
   SiCss3,
   SiExpress,
@@ -150,7 +151,10 @@ interface ProjectCardsProps {
   total: number;
 }
 
-export function ProjectCards({ repos, total }: ProjectCardsProps) {
+export default React.memo(function ProjectCards({
+  repos,
+  total,
+}: ProjectCardsProps) {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
   const totalPages = Math.ceil(total / PER_PAGE);
@@ -285,4 +289,4 @@ export function ProjectCards({ repos, total }: ProjectCardsProps) {
       </div>
     </div>
   );
-}
+});

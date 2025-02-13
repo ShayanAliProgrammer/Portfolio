@@ -25,10 +25,8 @@ const Image = React.memo(function Image({
     >
       <NextImage
         {...props}
-        width={1}
-        height={1}
-        loading="eager"
-        decoding="sync"
+        width={0.5}
+        height={0.5}
         className={cn(
           "absolute inset-0 size-full object-cover object-center",
           className,

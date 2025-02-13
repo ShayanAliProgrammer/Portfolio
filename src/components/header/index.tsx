@@ -35,6 +35,12 @@ export default function Header() {
       href: "/projects",
       description: "Top projects created by Shayan Ali",
     },
+
+    {
+      title: "Blog",
+      href: "/blog",
+      description: "Blog posts by Shayan Ali",
+    },
   ];
 
   return (
@@ -106,7 +112,7 @@ export default function Header() {
           <Button variant="outline" asChild>
             <a href="tel:03042585040">Urgent Call</a>
           </Button>
-          <Button>Resume</Button>
+          {/* <Button>Resume</Button> */}
         </div>
         <div className="flex shrink items-end justify-end lg:hidden">
           <DropdownMenu>

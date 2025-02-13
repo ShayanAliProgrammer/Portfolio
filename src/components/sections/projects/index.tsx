@@ -1,5 +1,8 @@
+import dynamic from "next/dynamic";
+import React from "react";
 import { env } from "~/env";
-import { ProjectCards } from "./cards";
+
+const ProjectCards = dynamic(() => import("./cards"));
 
 interface Repository {
   id: number;
@@ -72,7 +75,7 @@ interface ProjectsSectionProps {
   heading?: "h1" | "h2";
 }
 
-export default async function ProjectsSection({
+export default React.memo(async function ProjectsSection({
   searchParams,
   heading: Heading = "h2",
 }: ProjectsSectionProps) {
@@ -101,4 +104,4 @@ export default async function ProjectsSection({
       <ProjectCards repos={repos} total={total} />
     </section>
   );
-}
+});
