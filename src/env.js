@@ -10,7 +10,7 @@ export const env = createEnv({
     GITHUB_USERNAME: z.string(),
 
     APP_URL: z.string().url(),
-    
+
     DATABASE_URL: z.string().url(),
     TURSO_DATABASE_URL: z.string().url(),
     TURSO_AUTH_TOKEN: z.string(),

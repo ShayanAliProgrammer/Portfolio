@@ -5,14 +5,13 @@ import { PrismaClient } from "@prisma/client";
 import { env } from "~/env";
 
 const createPrismaClient = (adapter: PrismaLibSQL) => {
-
   return new PrismaClient({
     log:
-    env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+      env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
 
-    adapter
+    adapter,
   });
-}
+};
 
 const globalForPrisma = globalThis as unknown as {
   prisma: ReturnType<typeof createPrismaClient> | undefined;
@@ -20,12 +19,18 @@ const globalForPrisma = globalThis as unknown as {
   adapter: PrismaLibSQL | undefined;
 };
 
-const libsql = globalForPrisma.libsql ?? createClient({
-  url: `${env.DATABASE_URL.replace('../', '')}`,
+const libsql =
+  globalForPrisma.libsql ??
+  createClient({
+    ...(env.NODE_ENV == "development"
+      ? {
+          url: `${env.DATABASE_URL.replace("../", "")}`,
 
-  syncUrl: env.TURSO_DATABASE_URL,
-  authToken: env.TURSO_AUTH_TOKEN,
-})
+          syncUrl: env.TURSO_DATABASE_URL,
+          authToken: env.TURSO_AUTH_TOKEN,
+        }
+      : { url: env.TURSO_DATABASE_URL }),
+  });
 
 const adapter = globalForPrisma.adapter ?? new PrismaLibSQL(libsql);
 
