@@ -84,7 +84,7 @@ export default function SkillsSection() {
       description:
         "Revolutionize your data layer with Turso's edge database technology. I implement Turso to deliver offline-ready, lightning-fast performance that meets today's demanding market standards.",
       icon: (
-        <TursoLogo className="size-6 dark:group-hover/box:text-[#4FF8D2]" />
+        <TursoLogo className="size-6 group-hover/box:text-[#4FF8D2]" />
       ),
     },
 
