@@ -41,8 +41,10 @@ export default function HeroSection() {
             <Link href="tel:03042585040">Hire Shayan Ali</Link>
           </Button>
 
-          <Button variant="secondary" size="lg">
-            View Projects
+          <Button variant="secondary" asChild size="lg">
+            <Link href='/projects'>
+              View Projects
+            </Link>
           </Button>
         </div>
       </div>

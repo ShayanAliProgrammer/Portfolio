@@ -38,7 +38,7 @@ export default function Header() {
 
     {
       title: "Blog",
-      href: "/blog",
+      href: "https://medium.com/@coding-master-shayan",
       description: "Blog posts by Shayan Ali",
     },
   ];
@@ -50,14 +50,14 @@ export default function Header() {
           <div className="flex lg:justify-center">
             <Link href="/">
               <Image
-                src={"/shayan-4k-2.jpeg"}
+                src={"/logo.png"}
                 alt="Shayan"
                 width={100}
                 height={100}
                 containerClassName="rounded-full border dark:hidden size-12"
               />
               <Image
-                src={"/shayan-4k-2-dark.jpg"}
+                src={"/logo-dark.jpg"}
                 alt="Shayan"
                 width={100}
                 height={100}

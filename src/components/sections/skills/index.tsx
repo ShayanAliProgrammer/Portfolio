@@ -140,12 +140,12 @@ export default function SkillsSection() {
       id="skills"
       className="relative flex flex-col items-center justify-between py-10 pb-0"
     >
-      <h2 className="z-10 w-full bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-center text-3xl text-transparent md:text-4xl lg:text-5xl">
+      <h2 className="z-10 w-full bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-center text-3xl text-transparent md:text-4xl lg:text-5xl leading-loose">
         My Skills
       </h2>
 
       <div className="px-5 pt-6">
-        <div className="z-10 mx-auto grid max-w-7xl grid-cols-1 justify-around gap-x-1 overflow-hidden rounded-md border md:grid-cols-2 lg:grid-cols-3">
+        <div className="z-10 mx-auto grid max-w-7xl grid-cols-1 justify-around gap-x-1 md:grid-cols-2 lg:grid-cols-3">
           {skills.map(({ title, description, icon }, index) => (
             <div
               key={index}

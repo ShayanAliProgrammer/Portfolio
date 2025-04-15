@@ -6,7 +6,6 @@ import {
   RiInstagramFill,
   RiThreadsFill,
 } from "react-icons/ri";
-import ThemeToggler from "../theme-toggler";
 import { Button } from "../ui/button";
 import Image from "../ui/image";
 
@@ -16,14 +15,14 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col items-center gap-6">
         <div className="flex size-20 overflow-hidden rounded-full border-2">
           <Image
-            src="/shayan-4k-2.jpeg"
+            src="/logo.png"
             containerClassName="dark:hidden"
             alt="Shayan"
             width={80}
             height={80}
           />
           <Image
-            src="/shayan-4k-2-dark.jpg"
+            src="/logo-dark.jpg"
             alt="Shayan"
             containerClassName="hidden dark:inline-block"
             width={80}
@@ -81,7 +80,7 @@ export default function Footer() {
           </Button>
         </div>
 
-        <ThemeToggler />
+        {/* <ThemeToggler /> */}
 
         <div className="max-w-xs text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Shayan Ali. All rights reserved.</p>
