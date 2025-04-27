@@ -44,7 +44,7 @@ export default function Footer() {
           </Button>
 
           <Button asChild variant="ghost" size="sm">
-            <Link href="/blog">Blog</Link>
+            <Link href="https://medium.com/@coding-master-shayan">Blog</Link>
           </Button>
         </nav>
 
