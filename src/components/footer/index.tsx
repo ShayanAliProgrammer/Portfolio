@@ -3,7 +3,6 @@ import {
   RiBlueskyFill,
   RiFacebookFill,
   RiGithubFill,
-  RiInstagramFill,
   RiThreadsFill,
 } from "react-icons/ri";
 import { Button } from "../ui/button";
@@ -62,19 +61,13 @@ export default function Footer() {
           </Button>
 
           <Button asChild variant="outline" size="icon">
-            <a href="#">
+            <a href="https://www.threads.com/@shayanalideveloper?hl=en">
               <RiThreadsFill size={20} />
             </a>
           </Button>
 
           <Button asChild variant="outline" size="icon">
-            <a href="#">
-              <RiInstagramFill size={20} />
-            </a>
-          </Button>
-
-          <Button asChild variant="outline" size="icon">
-            <a href="#">
+            <a href="https://bsky.app/profile/codingmastershayan.bsky.social">
               <RiBlueskyFill size={20} />
             </a>
           </Button>
