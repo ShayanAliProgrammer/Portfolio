@@ -3,8 +3,10 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 const HeroSection = dynamic(() => import("~/components/sections/hero"));
+const AboutSection = dynamic(() => import("~/components/sections/about"));
 const SkillsSection = dynamic(() => import("~/components/sections/skills"));
 const ProjectsSection = dynamic(() => import("~/components/sections/projects"));
+const ContactSection = dynamic(() => import("~/components/sections/contact"));
 
 export default function Home({
   searchParams,
@@ -12,9 +14,11 @@ export default function Home({
   searchParams: Promise<{ page?: string }>;
 }) {
   return (
-    <main className="border-x">
+    <main>
       <HeroSection />
-
+      
+      <AboutSection />
+      
       <SkillsSection />
 
       <Suspense
@@ -24,8 +28,10 @@ export default function Home({
           </div>
         }
       >
-        <ProjectsSection heading="h1" searchParams={searchParams} />
+        <ProjectsSection heading="h2" searchParams={searchParams} />
       </Suspense>
+
+      <ContactSection />
     </main>
   );
 }

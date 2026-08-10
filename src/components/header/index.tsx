@@ -1,139 +1,162 @@
-import { Menu } from "lucide-react";
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Menu, X, Code2, Home, LayoutGrid, User, Mail } from "lucide-react";
 import { Button } from "../ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+import { ThemeToggler } from "../theme-toggler";
 import Image from "../ui/image";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
 
 export default function Header() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
   const navigationItems = [
     {
       title: "Home",
       href: "/",
-      description: "Home page for Shayan's portfolio",
+      icon: <Home className="size-4" />,
     },
-
+    {
+      title: "About",
+      href: "/#about",
+      icon: <User className="size-4" />,
+    },
     {
       title: "Skills",
       href: "/#skills",
-      description: "Skills that Shayan Ali have",
+      icon: <LayoutGrid className="size-4" />,
     },
     {
       title: "Projects",
       href: "/projects",
-      description: "Top projects created by Shayan Ali",
+      icon: <LayoutGrid className="size-4" />,
     },
-
     {
-      title: "Blog",
-      href: "https://medium.com/@coding-master-shayan",
-      description: "Blog posts by Shayan Ali",
+      title: "Contact",
+      href: "/#contact",
+      icon: <Mail className="size-4" />,
     },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href.startsWith("/#")) {
+      const section = href.substring(2);
+      return searchParams.get("section") === section || 
+             (pathname === "/" && window.location.hash === href);
+    }
+    return pathname === href || pathname.startsWith(href + "/");
+  };
+
+  React.useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname, searchParams]);
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-accent/40 px-5 py-3 backdrop-blur-sm">
-      <div className="container relative mx-auto flex flex-row items-center gap-x-4 lg:grid lg:grid-cols-2">
-        <div className="flex items-center gap-x-10">
-          <div className="flex lg:justify-center">
-            <Link href="/">
-              <Image
-                src={"/logo.png"}
-                alt="Shayan"
-                width={100}
-                height={100}
-                containerClassName="rounded-full border dark:hidden size-12"
-              />
-              <Image
-                src={"/logo-dark.jpg"}
-                alt="Shayan"
-                width={100}
-                height={100}
-                containerClassName="rounded-full border dark:inline-block hidden size-12"
-              />
-            </Link>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="relative size-10 overflow-hidden rounded-full border-2 border-primary">
+            <Image
+              src="/logo.png"
+              alt="Shayan Ali"
+              width={40}
+              height={40}
+              className="dark:hidden"
+            />
+            <Image
+              src="/logo-dark.png"
+              alt="Shayan Ali"
+              width={40}
+              height={40}
+              className="hidden dark:inline"
+            />
           </div>
-
-          <div className="hidden flex-row items-center justify-start gap-4 lg:flex">
-            <NavigationMenu className="flex items-start justify-start">
-              <NavigationMenuList className="flex flex-row justify-start gap-4">
-                {navigationItems.map((item) => (
-                  <NavigationMenuItem key={item.title}>
-                    {item.href ? (
-                      <>
-                        <Button variant="ghost" asChild>
-                          <NavigationMenuLink href={item.href}>
-                            {item.title}
-                          </NavigationMenuLink>
-                        </Button>
-                      </>
-                    ) : (
-                      <>
-                        <NavigationMenuTrigger className="text-sm font-medium">
-                          {item.title}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent className="!w-[450px] p-4">
-                          <div className="flex grid-cols-2 flex-col gap-4 lg:grid">
-                            <div className="flex h-full flex-col justify-between">
-                              <div className="flex flex-col">
-                                <p className="text-base">{item.title}</p>
-                                <p className="text-sm text-muted-foreground">
-                                  {item.description}
-                                </p>
-                              </div>
-                              <Button size="sm" className="mt-10">
-                                Book a call today
-                              </Button>
-                            </div>
-                          </div>
-                        </NavigationMenuContent>
-                      </>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
+          <div className="hidden sm:flex flex-col">
+            <span className="font-bold text-foreground">Shayan Ali</span>
+            <span className="text-xs text-muted-foreground">Full Stack Developer</span>
           </div>
-        </div>
+        </Link>
 
-        <div className="flex w-full justify-end gap-4">
-          <Button variant="outline" asChild>
-            <a href="tel:03042585040">Urgent Call</a>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-2">
+          {navigationItems.map((item) => (
+            <Button
+              key={item.href}
+              variant={isActive(item.href) ? "secondary" : "ghost"}
+              size="sm"
+              asChild
+              className="gap-2 transition-all hover:scale-105"
+            >
+              <Link href={item.href}>
+                {item.icon}
+                {item.title}
+              </Link>
+            </Button>
+          ))}
+        </nav>
+
+        {/* CTA and Theme Toggle */}
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggler />
+          <Button asChild className="gap-2 bg-primary hover:bg-primary/90">
+            <a href="tel:+923042585040">
+              <Code2 className="size-4" />
+              <span className="hidden sm:inline">Hire Me</span>
+            </a>
           </Button>
-          {/* <Button>Resume</Button> */}
         </div>
-        <div className="flex shrink items-end justify-end lg:hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="mr-4 mt-4">
-              {navigationItems.map((item) => (
-                <DropdownMenuItem key={item.title} asChild>
-                  {item.href ? (
-                    <Link href={item.href}>{item.title}</Link>
-                  ) : (
-                    <div>{item.title}</div>
-                  )}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="lg:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+        </Button>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 top-16 z-50 bg-background/95 backdrop-blur-lg lg:hidden">
+            <div className="container mx-auto max-w-7xl px-4 py-6">
+              <nav className="flex flex-col gap-3">
+                {navigationItems.map((item) => (
+                  <Button
+                    key={item.href}
+                    variant={isActive(item.href) ? "secondary" : "ghost"}
+                    size="lg"
+                    asChild
+                    className="justify-start gap-3"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Link href={item.href}>
+                      {item.icon}
+                      {item.title}
+                    </Link>
+                  </Button>
+                ))}
+                
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <ThemeToggler />
+                  <Button asChild className="flex-1 gap-2 bg-primary hover:bg-primary/90">
+                    <a href="tel:+923042585040">
+                      <Code2 className="size-4" />
+                      Hire Me
+                    </a>
+                  </Button>
+                </div>
+              </nav>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

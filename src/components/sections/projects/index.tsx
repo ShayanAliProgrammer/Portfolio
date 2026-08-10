@@ -15,6 +15,8 @@ interface Repository {
   language: string | null;
   topics: string[];
   private: boolean;
+  created_at: string;
+  updated_at: string;
 }
 
 export const PER_PAGE = 6;
@@ -84,14 +86,22 @@ export default React.memo(async function ProjectsSection({
   const { repos, total } = await getRepos(currentPage);
 
   return (
-    <section className="py-10" id="projects">
-      <div className="text-center">
-        <Heading className="mb-4 bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-3xl font-bold text-transparent">
-          Featured Projects
-        </Heading>
-      </div>
+    <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-muted/50 to-background" id="projects">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="inline-block rounded-lg border border-primary/20 bg-primary/5 px-4 py-2 text-sm text-primary mb-6">
+            My Work
+          </div>
+          <Heading className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+            Featured Projects
+          </Heading>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore my open-source projects and contributions on GitHub.
+          </p>
+        </div>
 
-      <ProjectCards repos={repos} total={total} />
+        <ProjectCards repos={repos} total={total} />
+      </div>
     </section>
   );
 });

@@ -1,4 +1,6 @@
-import { DiMongodb, DiMysql } from "react-icons/di";
+"use client";
+
+import { motion, type Variants } from "framer-motion";
 import {
   RiBootstrapFill,
   RiCss3Fill,
@@ -10,163 +12,242 @@ import {
   RiReactjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
+import { DiMongodb, DiMysql } from "react-icons/di";
 import { FlowbiteLogo } from "~/components/logos/flowbite";
 import { T3Logo } from "~/components/logos/t3";
 import { TrpcLogo } from "~/components/logos/trpc";
 import { TursoLogo } from "~/components/logos/turso";
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+const skills = [
+  {
+    title: "HTML5",
+    icon: <RiHtml5Fill className="size-8" />,
+    color: "#E34F26",
+    level: 95,
+  },
+  {
+    title: "CSS3",
+    icon: <RiCss3Fill className="size-8" />,
+    color: "#1572B6",
+    level: 90,
+  },
+  {
+    title: "JavaScript",
+    icon: <RiJavascriptFill className="size-8" />,
+    color: "#F7DF1E",
+    level: 90,
+  },
+  {
+    title: "TypeScript",
+    icon: <RiJavascriptFill className="size-8" />,
+    color: "#3178C6",
+    level: 85,
+  },
+  {
+    title: "React",
+    icon: <RiReactjsFill className="size-8" />,
+    color: "#61DAFB",
+    level: 90,
+  },
+  {
+    title: "Next.js",
+    icon: <RiNextjsFill className="size-8" />,
+    color: "#000000",
+    level: 95,
+  },
+  {
+    title: "Tailwind CSS",
+    icon: <RiTailwindCssFill className="size-8" />,
+    color: "#06B6D4",
+    level: 90,
+  },
+  {
+    title: "Bootstrap",
+    icon: <RiBootstrapFill className="size-8" />,
+    color: "#7952B3",
+    level: 80,
+  },
+  {
+    title: "Node.js",
+    icon: <RiNodejsFill className="size-8" />,
+    color: "#339933",
+    level: 85,
+  },
+  {
+    title: "Express",
+    icon: <RiNodejsFill className="size-8" />,
+    color: "#000000",
+    level: 80,
+  },
+  {
+    title: "MySQL",
+    icon: <DiMysql className="size-8" />,
+    color: "#4479A1",
+    level: 80,
+  },
+  {
+    title: "MongoDB",
+    icon: <DiMongodb className="size-8" />,
+    color: "#47A248",
+    level: 85,
+  },
+  {
+    title: "Turso",
+    icon: <TursoLogo className="size-8" />,
+    color: "#4FF8D2",
+    level: 80,
+  },
+  {
+    title: "PHP",
+    icon: <RiPhpFill className="size-8" />,
+    color: "#777BB4",
+    level: 75,
+  },
+  {
+    title: "tRPC",
+    icon: <TrpcLogo className="size-8" />,
+    color: "#398CCB",
+    level: 90,
+  },
+  {
+    title: "T3 Stack",
+    icon: <T3Logo className="size-8" />,
+    color: "#000000",
+    level: 95,
+  },
+  {
+    title: "Flowbite",
+    icon: <FlowbiteLogo className="size-8" />,
+    color: "#0786FB",
+    level: 80,
+  },
+];
+
+const categories = [
+  { name: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Bootstrap"] },
+  { name: "Backend", skills: ["Node.js", "Express", "PHP"] },
+  { name: "Database", skills: ["MySQL", "MongoDB", "Turso"] },
+  { name: "Full Stack", skills: ["tRPC", "T3 Stack", "Flowbite"] },
+];
+
 export default function SkillsSection() {
-  const skills = [
-    {
-      title: "HTML",
-      description:
-        "Establish a compelling digital presence with hand-crafted HTML. I design SEO-optimized, accessible web structures that form the rock-solid foundation for engaging, conversion-focused experiences.",
-      icon: <RiHtml5Fill className="size-6 group-hover/box:text-[#DD4B25]" />,
-    },
-
-    {
-      title: "CSS",
-      description:
-        "Transform your visual storytelling with innovative CSS design. I create pixel-perfect, responsive layouts that captivate audiences and deliver a seamless experience across all devices.",
-      icon: <RiCss3Fill className="size-6 group-hover/box:text-[#254BDF]" />,
-    },
-
-    {
-      title: "JavaScript",
-      description:
-        "Empower your web applications with dynamic JavaScript solutions. I develop interactive features and data-driven functionalities that elevate user engagement and drive business success.",
-      icon: (
-        <RiJavascriptFill className="size-6 group-hover/box:text-[#F1D43B]" />
-      ),
-    },
-
-    {
-      title: "Bootstrap",
-      description:
-        "Speed up development with Bootstrap's proven mobile-first framework. I deliver clean, responsive designs that enhance user satisfaction while streamlining your project timelines.",
-      icon: (
-        <RiBootstrapFill className="size-6 group-hover/box:text-[#6A07F3]" />
-      ),
-    },
-
-    {
-      title: "Tailwind",
-      description:
-        "Redefine your interface with Tailwind CSS. I craft modern, efficient, and fully customizable designs that perfectly balance aesthetics with functionality to captivate users.",
-      icon: (
-        <RiTailwindCssFill className="size-6 group-hover/box:text-[#38BDF8]" />
-      ),
-    },
-
-    {
-      title: "Flowbite",
-      description:
-        "Transform your UI with Flowbite's ready-to-use Tailwind components. I leverage this toolkit to rapidly prototype and deliver user-centric, market-ready applications.",
-      icon: <FlowbiteLogo className="h-6 w-6 group-hover/box:text-[#0786FB]" />,
-    },
-
-    {
-      title: "MySQL",
-      description:
-        "Drive your data strategy with robust MySQL implementations. I design scalable, secure databases that enhance performance and empower data-driven business growth.",
-      icon: <DiMysql className="size-6 group-hover/box:text-[#007598]" />,
-    },
-
-    {
-      title: "MongoDB",
-      description:
-        "Unlock agile data management with MongoDB. I build flexible, high-performance databases that ensure real-time insights and effortless scalability to meet evolving business needs.",
-      icon: <DiMongodb className="size-6 group-hover/box:text-[#21D072]" />,
-    },
-
-    {
-      title: "Turso",
-      description:
-        "Revolutionize your data layer with Turso's edge database technology. I implement Turso to deliver offline-ready, lightning-fast performance that meets today's demanding market standards.",
-      icon: (
-        <TursoLogo className="size-6 group-hover/box:text-[#4FF8D2]" />
-      ),
-    },
-
-    {
-      title: "PHP",
-      description:
-        "Elevate your server-side performance with powerful PHP solutions. I build secure, scalable backend architectures that drive reliability and adapt to evolving market demands.",
-      icon: <RiPhpFill className="size-6 group-hover/box:text-[#4F5B93]" />,
-    },
-
-    {
-      title: "Nodejs with Express",
-      description:
-        "Accelerate your backend development with Node.js and Express. I create real-time, efficient server architectures that boost performance and propel your business forward.",
-      icon: <RiNodejsFill className="size-6 group-hover/box:text-[#54A245]" />,
-    },
-
-    {
-      title: "React",
-      description:
-        "Transform your digital interactions with cutting-edge React development. I craft modular, high-performance interfaces that deliver engaging user experiences and a competitive edge.",
-      icon: <RiReactjsFill className="size-6 group-hover/box:text-[#087EA4]" />,
-    },
-
-    {
-      title: "Next.js",
-      description:
-        "Power your web applications with Next.js innovation. I harness server-side rendering and dynamic capabilities to deliver ultra-fast, SEO-friendly applications that captivate audiences and drive results.",
-      icon: (
-        <RiNextjsFill className="size-6 group-hover/box:text-black dark:group-hover/box:text-[#ffffff]" />
-      ),
-    },
-
-    {
-      title: "TRPC",
-      description:
-        "Enhance your full-stack development with TRPC's type-safe API integration. I streamline secure, scalable communication between your front and back ends to build modern, seamless applications.",
-      icon: <TrpcLogo className="size-6 group-hover/box:text-[#398CCB]" />,
-    },
-
-    {
-      title: "T3 stack",
-      description:
-        "Set a new standard with the T3 stack—a powerful fusion of TypeScript, Next.js, and TRPC. I build seamless, scalable full-stack applications that drive innovation and deliver measurable business impact.",
-      icon: (
-        <T3Logo className="size-6 group-hover/box:text-black dark:group-hover/box:text-[#E2E8F0]" />
-      ),
-    },
-  ];
 
   return (
     <section
       id="skills"
-      className="relative flex flex-col items-center justify-between py-10 pb-0"
+      className="py-16 sm:py-24 lg:py-32"
     >
-      <h2 className="z-10 w-full bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-center text-3xl text-transparent md:text-4xl lg:text-5xl leading-loose">
-        My Skills
-      </h2>
-
-      <div className="px-5 pt-6">
-        <div className="z-10 mx-auto grid max-w-7xl grid-cols-1 justify-around gap-x-1 md:grid-cols-2 lg:grid-cols-3">
-          {skills.map(({ title, description, icon }, index) => (
-            <div
-              key={index}
-              className="relative size-full flex-shrink-0 border-b"
-            >
-              <div className="group/box relative z-10 flex flex-col overflow-hidden bg-transparent py-10">
-                <div className="relative z-10 mb-4 px-10 text-muted-foreground">
-                  {icon}
-                </div>
-                <h3 className="z-10 mb-2 w-max bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text px-10 text-lg font-bold text-transparent">
-                  <span className="inline-block transition duration-150">
-                    {title}
-                  </span>
-                </h3>
-                <p className="relative z-10 px-10 text-sm text-muted-foreground">
-                  {description}
-                </p>
-              </div>
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {/* Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <div className="inline-block rounded-lg border border-primary/20 bg-primary/5 px-4 py-2 text-sm text-primary mb-6">
+              My Skills
             </div>
-          ))}
-        </div>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+              Technologies I Work With
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              I continuously learn and adapt to new technologies to deliver the best solutions.
+            </p>
+          </motion.div>
+
+          {/* Skills Grid */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="group relative overflow-hidden rounded-xl border border-border bg-card/50 p-6 text-center transition-all"
+                >
+                  <div
+                    className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 to-transparent"
+                    style={{ backgroundColor: `${skill.color}10` }}
+                  />
+                  <div className="flex justify-center mb-4">
+                    <div
+                      className="size-16 rounded-xl bg-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform"
+                      style={{ backgroundColor: `${skill.color}15` }}
+                    >
+                      {skill.icon}
+                    </div>
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{skill.title}</h3>
+                  <div className="text-sm text-muted-foreground">{skill.level}%</div>
+                  <div className="mt-3 h-1 w-full rounded-full bg-muted overflow-hidden">
+                    <div
+                      className="h-full bg-primary transition-all duration-500"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Categories */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-2xl font-bold tracking-tight mb-8 text-center">
+              Skill Categories
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {categories.map((category, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="rounded-xl border border-border bg-card/50 p-6"
+                >
+                  <h4 className="font-semibold text-foreground mb-4 pb-2 border-b border-border">
+                    {category.name}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skillName, skillIndex) => {
+                      const skill = skills.find(s => s.title === skillName);
+                      return (
+                        <div
+                          key={skillIndex}
+                          className="flex items-center gap-2 rounded-lg border border-border/50 bg-card px-3 py-1.5 text-sm"
+                        >
+                          <span className="text-muted-foreground">{skill?.icon}</span>
+                          <span className="text-foreground">{skillName}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
