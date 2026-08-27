@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, GitBranch, MessageCircle } from "lucide-react";
 
 import { navigation, siteConfig } from "@/data/site";
@@ -7,8 +8,27 @@ export function SiteFooter() {
     <footer className="border-line bg-surface/60 border-t">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-14 md:px-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-lg font-extrabold">Let&apos;s build something useful.</p>
-          <p className="text-muted mt-2 max-w-md text-sm leading-6">
+          <div className="flex items-center gap-3">
+            <span
+              className="border-accent bg-surface relative block size-12 overflow-hidden rounded-full border"
+              title="Shayan Ali pencil-art portrait"
+            >
+              <Image
+                src="/brand/shayan-pencil-art.webp"
+                alt="Pencil-art portrait of Shayan Ali"
+                fill
+                sizes="48px"
+                className="object-cover object-[50%_24%] grayscale"
+              />
+            </span>
+            <div>
+              <p className="text-lg font-extrabold">Let&apos;s build something useful.</p>
+              <p className="text-muted mt-1 text-xs font-bold tracking-[0.14em] uppercase">
+                Shayan Ali · Web engineer
+              </p>
+            </div>
+          </div>
+          <p className="text-muted mt-5 max-w-md text-sm leading-6">
             Available for thoughtful freelance work, product collaborations, and
             full-stack roles.
           </p>

@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.description,
   },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/brand/shayan-pencil-art.webp" },
 };
 
 export const viewport: Viewport = {

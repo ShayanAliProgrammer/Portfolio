@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Menu, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, MapPin, Menu, Phone } from "lucide-react";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { navigation, siteConfig } from "@/data/site";
@@ -18,8 +19,18 @@ export function SiteHeader({ initialTheme }: SiteHeaderProps) {
           className="group flex items-center gap-3"
           aria-label="Shayan Ali home"
         >
-          <span className="border-accent bg-accent text-accent-foreground grid size-9 place-items-center rounded-full border font-mono text-xs font-black transition-transform duration-200 group-hover:-rotate-12">
-            SA
+          <span
+            className="border-accent bg-surface relative block size-10 overflow-hidden rounded-full border shadow-sm transition-transform duration-200 group-hover:-rotate-6"
+            title="Shayan Ali pencil-art portrait"
+          >
+            <Image
+              src="/brand/shayan-pencil-art.webp"
+              alt="Pencil-art portrait of Shayan Ali"
+              fill
+              priority
+              sizes="40px"
+              className="object-cover object-[50%_24%] grayscale"
+            />
           </span>
           <span className="hidden sm:block">
             <span className="block text-sm font-black tracking-tight">
