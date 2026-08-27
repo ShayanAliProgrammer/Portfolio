@@ -2,6 +2,8 @@ import { ArrowUpRight, Check, Phone } from "lucide-react";
 
 import { Capabilities } from "@/components/portfolio/capabilities";
 import { Hero } from "@/components/portfolio/hero";
+import { Process } from "@/components/portfolio/process";
+import { ProofStrip } from "@/components/portfolio/proof-strip";
 import { SelectedWork } from "@/components/portfolio/selected-work";
 import { siteConfig } from "@/data/site";
 
@@ -15,7 +17,9 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
+      <ProofStrip />
       <Capabilities />
+      <Process />
       <SelectedWork />
       <section id="contact" className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
         <div className="spotlight border-accent/40 bg-surface relative overflow-hidden rounded-3xl border p-7 shadow-[0_24px_80px_-35px_var(--accent)] md:p-12">
@@ -23,7 +27,7 @@ export default function HomePage() {
           <div className="relative grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-end">
             <div>
               <p className="text-accent text-xs font-black tracking-[0.2em] uppercase">
-                03 / Contact
+                04 / Contact
               </p>
               <h2 className="mt-4 max-w-2xl text-4xl font-black tracking-[-0.04em] sm:text-6xl">
                 Have a good problem? Let&apos;s make it useful.
@@ -41,7 +45,7 @@ export default function HomePage() {
                 <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </div>
-            <ul className="border-line text-foreground space-y-3 border-t pt-6 text-sm lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+            <ul className="text-foreground border-line space-y-3 border-t pt-6 text-sm lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
               {reasonsToHire.map((reason) => (
                 <li key={reason} className="flex items-start gap-3">
                   <Check

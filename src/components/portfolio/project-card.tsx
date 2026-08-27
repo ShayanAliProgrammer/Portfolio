@@ -1,5 +1,6 @@
 import { ArrowUpRight, GitBranch } from "lucide-react";
 
+import { ProjectPreview } from "@/components/portfolio/project-preview";
 import type { Project } from "@/types/portfolio";
 
 type ProjectCardProps = {
@@ -10,21 +11,27 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <article className="group border-line bg-surface hover:border-accent flex h-full flex-col overflow-hidden rounded-2xl border transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_55px_-28px_var(--accent)]">
-      <div className="border-line bg-surface-strong relative min-h-36 overflow-hidden border-b p-6">
-        <div className="grid-surface absolute inset-0 opacity-50" aria-hidden="true" />
-        <div className="relative flex items-start justify-between gap-4">
-          <span className="text-accent font-mono text-xs font-bold">0{index + 1}</span>
-          <span className="border-line bg-background/80 text-muted rounded-md border px-2.5 py-1 font-mono text-xs font-bold">
-            {project.language}
-          </span>
-        </div>
-        <p className="text-muted relative mt-12 max-w-[16rem] text-xs font-black tracking-[0.16em] uppercase">
-          {project.eyebrow}
-        </p>
+      <div className="relative">
+        <ProjectPreview slug={project.slug} />
+        <span className="text-accent absolute top-5 left-5 font-mono text-xs font-bold">
+          0{index + 1}
+        </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6 md:p-7">
-        <h3 className="text-2xl font-black tracking-[-0.03em]">{project.name}</h3>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-accent text-xs font-black tracking-[0.16em] uppercase">
+              {project.eyebrow}
+            </p>
+            <h3 className="mt-3 text-2xl font-black tracking-[-0.03em]">
+              {project.name}
+            </h3>
+          </div>
+          <span className="border-line bg-background text-muted shrink-0 rounded-md border px-2.5 py-1 font-mono text-xs font-bold">
+            {project.language}
+          </span>
+        </div>
         <p className="text-muted mt-3 text-sm leading-6">{project.description}</p>
         <div className="border-accent mt-6 border-l-2 pl-4">
           <p className="text-accent text-xs font-black tracking-[0.16em] uppercase">
