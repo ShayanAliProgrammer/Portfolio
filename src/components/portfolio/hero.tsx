@@ -9,13 +9,7 @@ const focusAreas = ["Product UI", "Full-stack systems", "Performance"];
 
 export function Hero() {
   return (
-    <section
-      id="home"
-      className="hero-scene border-line relative overflow-hidden border-b"
-    >
-      <div className="grid-surface absolute inset-0 opacity-25" aria-hidden="true" />
-      <div className="hero-cloud hero-cloud-one" aria-hidden="true" />
-      <div className="hero-cloud hero-cloud-two" aria-hidden="true" />
+    <section id="home" className="hero-scene border-line relative border-b">
       <div className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:py-36">
         <div className="text-muted mb-16 flex items-center justify-between gap-6 text-xs font-black tracking-[0.18em] uppercase">
           <span className="inline-flex items-center gap-2">
@@ -28,7 +22,7 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-20">
+        <div className="grid gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-24">
           <MotionReveal>
             <div>
               <p className="text-accent mb-6 text-xs font-black tracking-[0.2em] uppercase">
@@ -79,55 +73,12 @@ export function Hero() {
           </MotionReveal>
 
           <MotionReveal delay={0.1}>
-            <aside className="relative mx-auto w-full max-w-md lg:pb-4">
-              <div className="text-muted absolute top-1/2 -left-8 hidden -translate-y-1/2 rotate-180 font-mono text-[10px] font-black tracking-[0.22em] uppercase [writing-mode:vertical-rl] sm:block">
-                Design / Details / Code
+            <aside className="mx-auto w-full max-w-md">
+              <div className="text-muted mb-4 flex items-center justify-between font-mono text-[10px] font-black tracking-[0.18em] uppercase">
+                <span>01 / Personal mark</span>
+                <span>{siteConfig.location}</span>
               </div>
               <PortraitCard />
-              <div className="border-line bg-surface/90 mt-4 overflow-hidden rounded-[2rem] border shadow-2xl shadow-black/15">
-                <div className="border-line flex items-center justify-between border-b px-5 py-4">
-                  <div className="flex items-center gap-2" aria-hidden="true">
-                    <span className="size-2.5 rounded-full bg-[#ff6b6b]" />
-                    <span className="size-2.5 rounded-full bg-[#ffd166]" />
-                    <span className="bg-accent size-2.5 rounded-full" />
-                  </div>
-                  <span className="text-muted font-mono text-xs">counter-panel.tsx</span>
-                </div>
-                <pre
-                  className="overflow-x-auto p-6 font-mono text-[12px] leading-7 md:p-8 md:text-sm"
-                  aria-label="Syntax-highlighted React component example"
-                >
-                  <code>
-                    <span className="text-muted">01 </span>
-                    <span className="text-secondary">export function</span>{" "}
-                    <span className="text-foreground">CounterPanel</span>() &#123;{"\n"}
-                    <span className="text-muted">02 </span>
-                    {"  "}
-                    <span className="text-secondary">return</span> (&#123;{"\n"}
-                    <span className="text-muted">03 </span>
-                    {"    "}&lt;<span className="text-accent">section</span> className=
-                    {<span className="text-accent">&quot;counter&quot;</span>}&gt;{"\n"}
-                    <span className="text-muted">04 </span>
-                    {"      "}&lt;<span className="text-accent">strong</span>
-                    &gt;&#123;count&#125;&lt;/<span className="text-accent">strong</span>
-                    &gt;{"\n"}
-                    <span className="text-muted">05 </span>
-                    {"      "}&lt;<span className="text-accent">button</span>{" "}
-                    onClick=&#123;increment&#125;&gt;{"\n"}
-                    <span className="text-muted">06 </span>
-                    {"        "}
-                    <span className="text-foreground">Increment</span>
-                    {"\n"}
-                    <span className="text-muted">07 </span>
-                    {"      "}&lt;/<span className="text-accent">button</span>&gt;{"\n"}
-                    <span className="text-muted">08 </span>
-                    {"    "}&lt;/<span className="text-accent">section</span>&gt;{"\n"}
-                    <span className="text-muted">09 </span>
-                    {"  "});{"\n"}
-                    <span className="text-muted">10 </span>&#125;
-                  </code>
-                </pre>
-              </div>
             </aside>
           </MotionReveal>
         </div>

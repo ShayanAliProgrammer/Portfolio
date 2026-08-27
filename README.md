@@ -91,7 +91,7 @@ Edit the typed data files rather than placing repeated copy inside page componen
 
 The application does not scrape GitHub at request time. This is deliberate: a portfolio should present a controlled professional narrative, not change unexpectedly because a repository description or API response changed. Each project also has a crawlable `/work/[slug]` case-study route with structured CreativeWork metadata.
 
-The approved brand asset lives at `public/brand/shayan-pencil-art.webp` and is used as the recognizable portrait mark in the header, hero identity card, footer, and Person schema image. The motion layer is intentionally small: `motion/react` handles only meaningful entrance transitions and respects `prefers-reduced-motion`; it is not used for perpetual background animation. The hero code window is intentionally separate from the personal narrative and shows only a syntax-highlighted product UI component example.
+The approved brand asset lives at `public/brand/shayan-pencil-art.webp` and is used as the recognizable portrait mark in the header, hero identity card, footer, and Person schema image. The motion layer is intentionally small: `motion/react` handles only meaningful entrance transitions and respects `prefers-reduced-motion`; it is not used for perpetual background animation. The hero keeps personal narrative, UI, and technical project proof separate rather than presenting self-description as code.
 
 The homepage includes a visible FAQ and JSON-LD for Person, WebSite, and FAQPage. This is designed to make the portfolio easier for search engines and answer engines to understand while keeping the same content useful to human visitors.
 
