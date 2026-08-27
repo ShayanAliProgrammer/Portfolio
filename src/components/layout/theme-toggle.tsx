@@ -7,27 +7,26 @@ const STORAGE_KEY = "portfolio-theme";
 
 type Theme = "light" | "dark";
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-
-  const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
-  return (
-    stored ??
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-  );
-}
-
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]);
+    const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
+    const preferred: Theme =
+      stored ??
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+    document.documentElement.classList.toggle("dark", preferred === "dark");
+    if (preferred !== "dark") {
+      window.requestAnimationFrame(() => setTheme(preferred));
+    }
+  }, []);
 
   function toggleTheme() {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     window.localStorage.setItem(STORAGE_KEY, nextTheme);
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
   }
 
   return (
@@ -35,7 +34,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      className="border-line bg-surface text-foreground hover:border-accent hover:text-accent-strong inline-flex size-10 items-center justify-center rounded-full border transition"
+      className="border-line bg-surface text-foreground hover:border-accent hover:text-accent-strong inline-flex size-10 items-center justify-center rounded-lg border transition"
     >
       {theme === "dark" ? (
         <Sun size={17} aria-hidden="true" />

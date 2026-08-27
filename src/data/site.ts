@@ -7,18 +7,14 @@ export const siteConfig = {
   url: "https://shayanali.vercel.app",
   location: "Pakistan",
   phone: "03042585040",
-  email: "",
   social: {
     github: "https://github.com/ShayanAliProgrammer",
-    medium: "https://medium.com/@coding-master-shayan",
-    threads: "https://www.threads.com/@shayanalideveloper?hl=en",
-    bluesky: "https://bsky.app/profile/codingmastershayan.bsky.social",
   },
 } as const;
 
 export const navigation = [
   { label: "Home", href: "/#home", external: false },
-  { label: "Capabilities", href: "/#capabilities", external: false },
+  { label: "About", href: "/#about", external: false },
   { label: "Selected work", href: "/#work", external: false },
-  { label: "Writing", href: siteConfig.social.medium, external: true },
+  { label: "Contact", href: "/#contact", external: false },
 ] as const;

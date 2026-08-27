@@ -1,11 +1,11 @@
-import { ArrowUpRight, GitBranch, PenLine } from "lucide-react";
+import { ArrowUpRight, GitBranch, MessageCircle } from "lucide-react";
 
 import { navigation, siteConfig } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-line bg-surface/40 border-t">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-12 md:px-8 lg:flex-row lg:items-end lg:justify-between">
+    <footer className="border-line bg-surface/60 border-t">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-14 md:px-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="text-lg font-extrabold">Let&apos;s build something useful.</p>
           <p className="text-muted mt-2 max-w-md text-sm leading-6">
@@ -13,12 +13,12 @@ export function SiteFooter() {
             full-stack roles.
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-3 text-sm">
-          {navigation.slice(0, 3).map((item) => (
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+          {navigation.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-muted hover:text-foreground"
+              className="text-muted hover:text-foreground transition"
             >
               {item.label}
             </a>
@@ -27,20 +27,18 @@ export function SiteFooter() {
             href={siteConfig.social.github}
             target="_blank"
             rel="noreferrer"
-            className="text-muted hover:text-foreground inline-flex items-center gap-1"
+            className="text-muted hover:text-foreground inline-flex items-center gap-1 transition"
           >
             <GitBranch size={15} aria-hidden="true" />
             GitHub
+            <ArrowUpRight size={13} aria-hidden="true" />
           </a>
           <a
-            href={siteConfig.social.medium}
-            target="_blank"
-            rel="noreferrer"
-            className="text-muted hover:text-foreground inline-flex items-center gap-1"
+            href={`tel:${siteConfig.phone}`}
+            className="text-accent-strong hover:text-accent inline-flex items-center gap-1 transition"
           >
-            <PenLine size={15} aria-hidden="true" />
-            Writing
-            <ArrowUpRight size={13} aria-hidden="true" />
+            <MessageCircle size={15} aria-hidden="true" />
+            Call Shayan
           </a>
         </div>
       </div>

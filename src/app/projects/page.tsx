@@ -9,20 +9,24 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-      <div className="mb-12 max-w-3xl">
-        <p className="text-muted text-xs font-extrabold tracking-[0.2em] uppercase">
-          Selected work
-        </p>
-        <h1 className="mt-4 text-5xl font-black tracking-[-0.04em] sm:text-6xl">
-          Projects built to be useful.
-        </h1>
-        <p className="text-muted mt-6 text-lg leading-8">
-          A focused set of applications and web experiences. Each entry shows the product
-          context, my role, and the technical choices behind the work.
-        </p>
-      </div>
-      <ProjectsGrid allProjects />
+    <main>
+      <section className="spotlight border-line border-b">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+          <p className="text-accent text-xs font-black tracking-[0.2em] uppercase">
+            Selected work
+          </p>
+          <h1 className="mt-4 max-w-4xl text-5xl leading-[0.98] font-black tracking-[-0.06em] sm:text-6xl lg:text-8xl">
+            Projects built to be useful.
+          </h1>
+          <p className="text-muted mt-8 max-w-2xl text-lg leading-8 md:text-xl">
+            A focused set of applications and web experiences. Each entry shows the
+            product context, my role, and the technical decisions behind the build.
+          </p>
+        </div>
+      </section>
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+        <ProjectsGrid allProjects />
+      </section>
     </main>
   );
 }

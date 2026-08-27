@@ -89,7 +89,7 @@ The application does not scrape GitHub at request time. This is deliberate: a po
 
 ## Design principles
 
-The visual system keeps the original warm editorial direction while using a smaller set of tokens and components. Heavy borders are reserved for structure, cards use consistent radii and spacing, all interactive elements have visible focus states, and non-essential motion respects `prefers-reduced-motion`. The light/dark theme is dependency-free and persists locally in the browser.
+The visual system uses a dark-first developer-tool direction with lime and sky accents, CSS-only grid and spotlight surfaces, and a small set of reusable primitives. Cards use consistent radii and spacing, all interactive elements have visible focus states, and non-essential motion respects `prefers-reduced-motion`. The light/dark theme is dependency-free and persists locally in the browser. No shader, WebGL, perpetual animation, or animation-library dependency is used.
 
 ## License
 

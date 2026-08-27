@@ -1,28 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f2ead9;
-  --foreground: #3f3325;
-  --surface: #f8f1e4;
-  --surface-strong: #e9ddc6;
-  --muted: #756752;
-  --line: #c7b79d;
-  --accent: #6d6a37;
-  --accent-strong: #4f5128;
-  --accent-foreground: #fffdf7;
-  --radius: 0.75rem;
+  --background: #0a0d14;
+  --foreground: #f5f7fb;
+  --surface: #111724;
+  --surface-strong: #182235;
+  --muted: #9aa8bb;
+  --line: #263249;
+  --accent: #b8ff4d;
+  --accent-strong: #d3ff8b;
+  --accent-foreground: #0a0d14;
+  --secondary: #7dd3fc;
 }
 
-.dark {
-  --background: #211f1a;
-  --foreground: #f5eddf;
-  --surface: #2a2721;
-  --surface-strong: #373126;
-  --muted: #c8bca8;
-  --line: #5b5041;
-  --accent: #c6c56d;
-  --accent-strong: #e0df8a;
-  --accent-foreground: #222116;
+.light {
+  --background: #f5f7fb;
+  --foreground: #111827;
+  --surface: #ffffff;
+  --surface-strong: #e9eef7;
+  --muted: #5c6b80;
+  --line: #cbd5e1;
+  --accent: #547d00;
+  --accent-strong: #3e6000;
+  --accent-foreground: #ffffff;
+  --secondary: #0369a1;
 }
 
 @theme inline {
@@ -35,6 +36,7 @@
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -45,6 +47,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
@@ -71,15 +74,44 @@ body {
   position: fixed;
   inset: 0;
   z-index: 50;
-  opacity: 0.08;
-  background-image: radial-gradient(var(--foreground) 0.6px, transparent 0.6px);
-  background-size: 6px 6px;
-  mix-blend-mode: multiply;
+  opacity: 0.05;
+  background-image: radial-gradient(var(--foreground) 0.65px, transparent 0.65px);
+  background-size: 7px 7px;
+  mix-blend-mode: screen;
 }
 
-.dark .texture {
-  mix-blend-mode: screen;
-  opacity: 0.04;
+.light .texture {
+  mix-blend-mode: multiply;
+  opacity: 0.035;
+}
+
+.grid-surface {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--line) 45%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--line) 45%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 42px 42px;
+}
+
+.spotlight {
+  background-image:
+    radial-gradient(
+      circle at 80% 10%,
+      color-mix(in srgb, var(--accent) 18%, transparent),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      color-mix(in srgb, var(--secondary) 12%, transparent),
+      transparent 30%
+    );
 }
 
 @media (prefers-reduced-motion: reduce) {
