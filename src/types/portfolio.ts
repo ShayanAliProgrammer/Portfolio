@@ -10,6 +10,9 @@ export type Project = {
   githubUrl: string;
   liveUrl?: string;
   featured?: boolean;
+  challenge: string;
+  approach: string;
+  deliverables: string[];
 };
 
 export type SkillGroup = {

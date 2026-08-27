@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { projects } from "@/data/projects";
 import { siteConfig } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,5 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    ...projects.map((project) => ({
+      url: `${siteConfig.url}/work/${project.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
   ];
 }

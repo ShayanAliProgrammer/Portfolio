@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check, Phone } from "lucide-react";
 
+import { FAQ, faqSchema } from "@/components/portfolio/faq";
 import { Capabilities } from "@/components/portfolio/capabilities";
 import { Hero } from "@/components/portfolio/hero";
 import { Process } from "@/components/portfolio/process";
@@ -14,8 +15,41 @@ const reasonsToHire = [
 ];
 
 export default function HomePage() {
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        name: siteConfig.name,
+        jobTitle: "Full-stack developer",
+        url: siteConfig.url,
+        image: `${siteConfig.url}/brand/shayan-pencil-art.webp`,
+        sameAs: [siteConfig.social.github],
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "PHP",
+          "Web performance",
+          "Accessibility",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        name: `${siteConfig.name} portfolio`,
+        url: siteConfig.url,
+        description: siteConfig.description,
+      },
+      { "@type": "FAQPage", mainEntity: faqSchema },
+    ],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
       <Hero />
       <ProofStrip />
       <Capabilities />
@@ -59,6 +93,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <FAQ />
     </main>
   );
 }
