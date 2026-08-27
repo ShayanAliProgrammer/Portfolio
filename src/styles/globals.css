@@ -1,29 +1,45 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f7f1e8;
-  --foreground: #1f242b;
-  --surface: #fffdf8;
-  --surface-strong: #e6f0f5;
-  --muted: #66717c;
-  --line: #d9d4ca;
-  --accent: #ef3d32;
-  --accent-strong: #c82720;
+:root,
+.system {
+  --background: #eee9df;
+  --foreground: #101216;
+  --surface: #f8f5ee;
+  --surface-strong: #e2e7e9;
+  --muted: #687078;
+  --line: #c9c6bf;
+  --accent: #e9562d;
+  --accent-strong: #bd391e;
   --accent-foreground: #ffffff;
-  --secondary: #487ea4;
+  --secondary: #416f86;
 }
 
 .dark {
-  --background: #080a0c;
-  --foreground: #f4f0e9;
-  --surface: #101419;
-  --surface-strong: #171e25;
-  --muted: #a4adb5;
-  --line: #2b333b;
-  --accent: #ff574d;
-  --accent-strong: #ff8077;
+  --background: #0b0c0f;
+  --foreground: #ece9e1;
+  --surface: #111318;
+  --surface-strong: #17191f;
+  --muted: #9b9da3;
+  --line: #2a2c33;
+  --accent: #ff5a2d;
+  --accent-strong: #ff896e;
   --accent-foreground: #170a08;
-  --secondary: #8bc4e5;
+  --secondary: #8ec8a8;
+}
+
+@media (prefers-color-scheme: dark) {
+  .system {
+    --background: #0b0c0f;
+    --foreground: #ece9e1;
+    --surface: #111318;
+    --surface-strong: #17191f;
+    --muted: #9b9da3;
+    --line: #2a2c33;
+    --accent: #ff5a2d;
+    --accent-strong: #ff896e;
+    --accent-foreground: #170a08;
+    --secondary: #8ec8a8;
+  }
 }
 
 @theme inline {
@@ -40,6 +56,7 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display:
     var(--font-space-grotesk), var(--font-geist-sans), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
   --font-mono:
     var(--font-space-mono), var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
     monospace;
@@ -71,7 +88,14 @@ h3 {
   font-family:
     var(--font-space-grotesk), var(--font-geist-sans), ui-sans-serif, system-ui,
     sans-serif;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 ::selection {
@@ -95,9 +119,20 @@ h3 {
   mix-blend-mode: multiply;
 }
 
+.system .texture {
+  mix-blend-mode: multiply;
+}
+
 .dark .texture {
   mix-blend-mode: screen;
   opacity: 0.045;
+}
+
+@media (prefers-color-scheme: dark) {
+  .system .texture {
+    mix-blend-mode: screen;
+    opacity: 0.045;
+  }
 }
 
 .grid-surface {

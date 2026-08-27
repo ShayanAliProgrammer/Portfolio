@@ -1,6 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
-import { Geist, Geist_Mono, Space_Grotesk, Space_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Instrument_Serif,
+  Space_Grotesk,
+  Space_Mono,
+} from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -34,6 +40,13 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -58,7 +71,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#eee9df" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0c0f" },
+  ],
 };
 
 export default async function RootLayout({
@@ -70,7 +86,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${theme}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${instrumentSerif.variable} ${theme}`}
     >
       <body>
         <div className="texture" aria-hidden="true" />
