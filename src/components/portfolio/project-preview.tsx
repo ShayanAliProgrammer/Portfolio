@@ -8,12 +8,12 @@ const previewBySlug = {
     lines: ["connected clients", "updates / second", "response time"],
     values: ["128", "24", "42ms"],
   },
-  portfolio: {
+  fallback: {
     icon: Code2,
-    label: "Portfolio system",
+    label: "Web product",
     accent: "bg-[#ff2d20]",
     lines: ["render mode", "content source", "build status"],
-    values: ["static", "typed data", "passing"],
+    values: ["fast", "typed data", "passing"],
   },
   "endurance-tec": {
     icon: Globe2,
@@ -30,7 +30,7 @@ type ProjectPreviewProps = {
 
 export function ProjectPreview({ slug }: ProjectPreviewProps) {
   const preview =
-    previewBySlug[slug as keyof typeof previewBySlug] ?? previewBySlug.portfolio;
+    previewBySlug[slug as keyof typeof previewBySlug] ?? previewBySlug.fallback;
   const Icon = preview.icon;
 
   return (
