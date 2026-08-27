@@ -1,46 +1,26 @@
 import Link from "next/link";
-import { Button } from "~/components/ui/button";
 
-export default function NotFoundPage() {
+export default function NotFound() {
   return (
-    <div className="flex min-h-[70vh] flex-col items-center justify-center gap-5 py-10">
-      <div className="flex w-full max-w-md flex-col gap-4 rounded-md border-2 bg-card/60 px-6 py-4 text-muted-foreground">
-        <div className="flex flex-col gap-2">
-          <p className="bg-gradient-to-t from-muted-foreground via-foreground/80 to-foreground bg-clip-text text-lg text-transparent">
-            Resource Not Found
-          </p>
-          <p className="text-sm">
-            The resource that you are looking for was not found, either it is in
-            development or does not exists.
-          </p>
-        </div>
-
-        <div className="text-sm">
-          <p>Try:</p>
-          <ul className="list-disc pl-7">
-            <li>reoloading page</li>
-            <li>going back to home page</li>
-            <li>
-              <a
-                href="tel:03042585040"
-                className="underline underline-offset-4"
-              >
-                calling shayan for help (if needed)
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="mt-2 flex w-full flex-wrap justify-between gap-2">
-          <Button asChild size="sm" variant="outline">
-            <a href="tel:03042585040">Call Shayan</a>
-          </Button>
-
-          <Button asChild size="sm">
-            <Link href="/">Go to Home Page</Link>
-          </Button>
-        </div>
+    <main className="mx-auto flex min-h-[60vh] max-w-3xl items-center px-5 py-20 md:px-8">
+      <div className="border-line bg-surface w-full rounded-[2rem] border p-8 md:p-12">
+        <p className="text-muted text-xs font-extrabold tracking-[0.2em] uppercase">
+          404
+        </p>
+        <h1 className="mt-4 text-4xl font-black tracking-tight">
+          This page is not here.
+        </h1>
+        <p className="text-muted mt-4 max-w-xl leading-7">
+          The link may be outdated, or the page may have moved. Return to the homepage to
+          explore Shayan&apos;s capabilities and selected work.
+        </p>
+        <Link
+          href="/#home"
+          className="bg-accent text-accent-foreground hover:bg-accent-strong mt-8 inline-flex rounded-full px-5 py-3 text-sm font-extrabold transition"
+        >
+          Back to homepage
+        </Link>
       </div>
-    </div>
+    </main>
   );
 }

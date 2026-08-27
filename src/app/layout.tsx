@@ -1,49 +1,55 @@
-import "~/styles/globals.css";
-
-import { type Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Nunito } from "next/font/google";
-import { cookies } from "next/headers";
-import NextTopLoader from "nextjs-toploader";
 
-import Footer from "~/components/footer";
-import Header from "~/components/header";
-import { TRPCReactProvider } from "~/trpc/react";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import { siteConfig } from "@/data/site";
+import "@/styles/globals.css";
 
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
-  preload: true,
-  weight: ['600', '700','800','900']
-});  
+  display: "swap",
+  weight: ["400", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
-  title: "Shayan Ali Jalbani",
-  description: "Hi, I am a full stack developer from Pakistan. If you have any project in mind, than let's connect together to bring your idea in life.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.title}`,
+    template: `%s — ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: `${siteConfig.name} — ${siteConfig.title}`,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary",
+    title: `${siteConfig.name} — ${siteConfig.title}`,
+    description: siteConfig.description,
+  },
+  icons: { icon: "/favicon.ico" },
 };
 
-export default async function RootLayout({
+export const viewport: Viewport = {
+  themeColor: "#f2ead9",
+};
+
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const theme = (await cookies()).get("theme")?.value ?? "system";
-
   return (
-    <html
-      lang="en"
-      className={`${nunito.className} ${theme} antialiased relative`}
-      >
+    <html lang="en" className={nunito.variable} suppressHydrationWarning>
       <body>
-      <div className="texture" />
-
-        <TRPCReactProvider>
-          <NextTopLoader color="hsl(var(--primary))" showSpinner={false} />
-
-          <Header />
-
-          {children}
-
-          <Footer />
-        </TRPCReactProvider>
+        <div className="texture" aria-hidden="true" />
+        <SiteHeader />
+        {children}
+        <SiteFooter />
       </body>
     </html>
   );
