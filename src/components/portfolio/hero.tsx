@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, GitBranch, MapPin, Phone } from "lucide-react";
+import { ArrowDown, ArrowUpRight, MapPin, Phone } from "lucide-react";
 
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { PortraitCard } from "@/components/portfolio/portrait-card";
@@ -91,47 +91,42 @@ export function Hero() {
                     <span className="size-2.5 rounded-full bg-[#ffd166]" />
                     <span className="bg-accent size-2.5 rounded-full" />
                   </div>
-                  <span className="text-muted font-mono text-xs">shayan.tsx</span>
+                  <span className="text-muted font-mono text-xs">counter-panel.tsx</span>
                 </div>
-                <div className="space-y-5 p-6 font-mono text-sm leading-7 md:p-8">
-                  <p className="text-muted">
-                    <span className="text-secondary">const</span> developer = &#123;
-                  </p>
-                  <p className="text-foreground pl-5">
-                    name: <span className="text-accent">&quot;Shayan Ali&quot;</span>,
-                  </p>
-                  <p className="text-foreground pl-5">
-                    focus:{" "}
-                    <span className="text-accent">&quot;useful products&quot;</span>,
-                  </p>
-                  <p className="text-foreground pl-5">
-                    stack: [<span className="text-accent">&quot;Next.js&quot;</span>,{" "}
-                    <span className="text-accent">&quot;TypeScript&quot;</span>],
-                  </p>
-                  <p className="text-foreground pl-5">
-                    principle:{" "}
-                    <span className="text-accent">&quot;make it clear&quot;</span>,
-                  </p>
-                  <p className="text-muted">&#125;;</p>
-                  <div className="border-accent/30 bg-accent/5 mt-8 rounded-xl border p-4 font-sans">
-                    <p className="text-accent text-xs font-black tracking-[0.16em] uppercase">
-                      Current status
-                    </p>
-                    <p className="text-foreground mt-2 text-sm leading-6">
-                      Open to selected freelance projects and full-stack opportunities.
-                    </p>
-                  </div>
-                  <a
-                    href={siteConfig.social.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-accent-strong inline-flex items-center gap-2 font-sans text-sm font-black hover:underline"
-                  >
-                    <GitBranch size={15} aria-hidden="true" />
-                    Browse the source
-                    <ArrowUpRight size={14} aria-hidden="true" />
-                  </a>
-                </div>
+                <pre
+                  className="overflow-x-auto p-6 font-mono text-[12px] leading-7 md:p-8 md:text-sm"
+                  aria-label="Syntax-highlighted React component example"
+                >
+                  <code>
+                    <span className="text-muted">01 </span>
+                    <span className="text-secondary">export function</span>{" "}
+                    <span className="text-foreground">CounterPanel</span>() &#123;{"\n"}
+                    <span className="text-muted">02 </span>
+                    {"  "}
+                    <span className="text-secondary">return</span> (&#123;{"\n"}
+                    <span className="text-muted">03 </span>
+                    {"    "}&lt;<span className="text-accent">section</span> className=
+                    {<span className="text-accent">&quot;counter&quot;</span>}&gt;{"\n"}
+                    <span className="text-muted">04 </span>
+                    {"      "}&lt;<span className="text-accent">strong</span>
+                    &gt;&#123;count&#125;&lt;/<span className="text-accent">strong</span>
+                    &gt;{"\n"}
+                    <span className="text-muted">05 </span>
+                    {"      "}&lt;<span className="text-accent">button</span>{" "}
+                    onClick=&#123;increment&#125;&gt;{"\n"}
+                    <span className="text-muted">06 </span>
+                    {"        "}
+                    <span className="text-foreground">Increment</span>
+                    {"\n"}
+                    <span className="text-muted">07 </span>
+                    {"      "}&lt;/<span className="text-accent">button</span>&gt;{"\n"}
+                    <span className="text-muted">08 </span>
+                    {"    "}&lt;/<span className="text-accent">section</span>&gt;{"\n"}
+                    <span className="text-muted">09 </span>
+                    {"  "});{"\n"}
+                    <span className="text-muted">10 </span>&#125;
+                  </code>
+                </pre>
               </div>
             </aside>
           </MotionReveal>
