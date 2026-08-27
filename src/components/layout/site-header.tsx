@@ -3,8 +3,13 @@ import { ArrowUpRight, Menu, Phone } from "lucide-react";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { navigation, siteConfig } from "@/data/site";
+import type { Theme } from "@/lib/theme";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  initialTheme: Theme;
+};
+
+export function SiteHeader({ initialTheme }: SiteHeaderProps) {
   return (
     <header className="border-line/80 bg-background/85 sticky top-0 z-40 border-b backdrop-blur-xl">
       <div className="mx-auto flex min-h-18 max-w-7xl items-center justify-between gap-6 px-5 md:px-8">
@@ -46,7 +51,7 @@ export function SiteHeader() {
             <span className="bg-accent size-2 rounded-full" aria-hidden="true" />
             Available for work
           </span>
-          <ThemeToggle />
+          <ThemeToggle initialTheme={initialTheme} />
           <a
             href={`tel:${siteConfig.phone}`}
             className="bg-accent text-accent-foreground hover:bg-accent-strong hidden items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-black transition sm:inline-flex"

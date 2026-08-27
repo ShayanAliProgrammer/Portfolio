@@ -1,11 +1,13 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const STORAGE_KEY = "portfolio-theme";
+import { THEME_COOKIE, THEME_COOKIE_MAX_AGE, type Theme } from "@/lib/theme";
 
-type Theme = "light" | "dark";
+type ThemeToggleProps = {
+  initialTheme: Theme;
+};
 
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
@@ -13,25 +15,13 @@ function applyTheme(theme: Theme) {
   root.classList.toggle("light", theme === "light");
 }
 
-export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
-    const preferred: Theme =
-      stored ??
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-
-    applyTheme(preferred);
-    if (preferred !== "dark") {
-      window.requestAnimationFrame(() => setTheme(preferred));
-    }
-  }, []);
+export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
+  const [theme, setTheme] = useState<Theme>(initialTheme);
 
   function toggleTheme() {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
-    window.localStorage.setItem(STORAGE_KEY, nextTheme);
+    document.cookie = `${THEME_COOKIE}=${nextTheme}; Path=/; Max-Age=${THEME_COOKIE_MAX_AGE}; SameSite=Lax`;
     applyTheme(nextTheme);
   }
 

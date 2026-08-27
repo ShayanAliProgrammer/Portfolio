@@ -89,7 +89,7 @@ The application does not scrape GitHub at request time. This is deliberate: a po
 
 ## Design principles
 
-The visual system uses a dark-first developer-tool direction with a neutral black/white base and a Laravel-red accent, CSS-only grid and spotlight surfaces, and a small set of reusable primitives. Typography uses self-hosted Geist Sans for display and body copy, with Geist Mono reserved for technical details. This creates a sharper, more modern minimalist hierarchy without adding a runtime font dependency. Cards use consistent radii and spacing, all interactive elements have visible focus states, and non-essential motion respects `prefers-reduced-motion`. The light/dark theme is dependency-free and persists locally in the browser. No shader, WebGL, perpetual animation, or animation-library dependency is used.
+The visual system uses a dark-first developer-tool direction with a neutral black/white base and a Laravel-red accent, CSS-only grid and spotlight surfaces, and a small set of reusable primitives. Typography uses self-hosted Space Grotesk for display headings, Geist Sans for readable body copy, and Space Mono reserved for technical details. The angular display face gives the portfolio a sharper, more distinctive identity without adding a runtime font dependency. Cards use consistent radii and spacing, all interactive elements have visible focus states, and non-essential motion respects `prefers-reduced-motion`. The light/dark theme is dependency-free and persists locally in the browser. No shader, WebGL, perpetual animation, or animation-library dependency is used.
 
 ## License
 

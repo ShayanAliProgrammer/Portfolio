@@ -38,7 +38,11 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-secondary: var(--secondary);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display:
+    var(--font-space-grotesk), var(--font-geist-sans), ui-sans-serif, sans-serif;
+  --font-mono:
+    var(--font-space-mono), var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 }
 
 * {
@@ -59,6 +63,15 @@ body {
   font-weight: 500;
   letter-spacing: -0.01em;
   text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family:
+    var(--font-space-grotesk), var(--font-geist-sans), ui-sans-serif, system-ui,
+    sans-serif;
+  letter-spacing: -0.045em;
 }
 
 ::selection {
