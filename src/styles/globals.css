@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0d14;
-  --foreground: #f5f7fb;
-  --surface: #111724;
-  --surface-strong: #182235;
-  --muted: #9aa8bb;
-  --line: #263249;
-  --accent: #b8ff4d;
-  --accent-strong: #d3ff8b;
-  --accent-foreground: #0a0d14;
-  --secondary: #7dd3fc;
+  --background: #000000;
+  --foreground: #ededed;
+  --surface: #0a0a0a;
+  --surface-strong: #151515;
+  --muted: #a1a1aa;
+  --line: #2a2a2a;
+  --accent: #ff2d20;
+  --accent-strong: #ff6b61;
+  --accent-foreground: #ffffff;
+  --secondary: #f5b5ae;
 }
 
 .light {
-  --background: #f5f7fb;
-  --foreground: #111827;
+  --background: #fafafa;
+  --foreground: #171717;
   --surface: #ffffff;
-  --surface-strong: #e9eef7;
-  --muted: #5c6b80;
-  --line: #cbd5e1;
-  --accent: #547d00;
-  --accent-strong: #3e6000;
+  --surface-strong: #f1f1f1;
+  --muted: #52525b;
+  --line: #d4d4d4;
+  --accent: #e6291d;
+  --accent-strong: #c51f16;
   --accent-foreground: #ffffff;
-  --secondary: #0369a1;
+  --secondary: #b42318;
 }
 
 @theme inline {
@@ -75,7 +75,7 @@ body {
   inset: 0;
   z-index: 50;
   opacity: 0.05;
-  background-image: radial-gradient(var(--foreground) 0.65px, transparent 0.65px);
+  background-image: radial-gradient(var(--foreground) 0.55px, transparent 0.55px);
   background-size: 7px 7px;
   mix-blend-mode: screen;
 }

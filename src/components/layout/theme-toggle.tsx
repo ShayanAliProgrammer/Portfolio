@@ -7,6 +7,12 @@ const STORAGE_KEY = "portfolio-theme";
 
 type Theme = "light" | "dark";
 
+function applyTheme(theme: Theme) {
+  const root = document.documentElement;
+  root.classList.toggle("dark", theme === "dark");
+  root.classList.toggle("light", theme === "light");
+}
+
 export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("dark");
 
@@ -16,7 +22,7 @@ export function ThemeToggle() {
       stored ??
       (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-    document.documentElement.classList.toggle("dark", preferred === "dark");
+    applyTheme(preferred);
     if (preferred !== "dark") {
       window.requestAnimationFrame(() => setTheme(preferred));
     }
@@ -26,7 +32,7 @@ export function ThemeToggle() {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     window.localStorage.setItem(STORAGE_KEY, nextTheme);
-    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    applyTheme(nextTheme);
   }
 
   return (
