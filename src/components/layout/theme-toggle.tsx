@@ -51,9 +51,11 @@ export function ThemeToggle({ initialTheme }: ThemeToggleProps) {
           onClick={() => selectTheme(option.value)}
           aria-label={`Use ${option.label.toLowerCase()} theme`}
           aria-pressed={theme === option.value}
+          title={`${option.label} theme${theme === option.value ? " (active)" : ""}`}
+          data-active={theme === option.value ? "true" : undefined}
           className={`inline-flex size-8 items-center justify-center rounded-full transition ${
             theme === option.value
-              ? "bg-accent text-accent-foreground"
+              ? "bg-accent text-accent-foreground shadow-[0_0_0_2px_var(--accent)]"
               : "text-muted hover:bg-surface-strong hover:text-foreground"
           }`}
         >

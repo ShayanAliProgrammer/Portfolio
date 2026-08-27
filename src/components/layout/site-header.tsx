@@ -12,15 +12,15 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ initialTheme }: SiteHeaderProps) {
   return (
-    <header className="sticky top-0 z-40 bg-transparent px-3 py-3 md:px-5 md:py-5">
-      <div className="border-line/80 bg-surface/80 mx-auto flex min-h-14 max-w-7xl items-center justify-between gap-4 rounded-full border px-3 shadow-lg shadow-black/5 backdrop-blur-xl md:px-5">
+    <header className="sticky top-0 z-40 bg-transparent px-5 py-3 md:px-8 md:py-4">
+      <div className="border-line/80 bg-surface/80 mx-auto flex min-h-14 max-w-[1440px] items-center justify-between gap-4 border-b px-0 pb-3 backdrop-blur-xl md:px-0">
         <Link
           href="/#home"
           className="group flex items-center gap-3"
           aria-label="Shayan Ali home"
         >
           <span
-            className="border-accent bg-surface relative block size-10 overflow-hidden rounded-full border shadow-sm transition-transform duration-200 group-hover:-rotate-6"
+            className="border-accent bg-surface relative block size-10 overflow-hidden rounded-full border shadow-sm transition-transform duration-200 group-hover:-rotate-6 md:size-11"
             title="Shayan Ali pencil-art portrait"
           >
             <Image

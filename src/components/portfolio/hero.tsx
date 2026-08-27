@@ -10,7 +10,7 @@ const focusAreas = ["Product UI", "Full-stack systems", "Performance"];
 export function Hero() {
   return (
     <section id="home" className="hero-scene border-line relative border-b">
-      <div className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:py-36">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-20 md:px-8 md:py-28 lg:py-36">
         <div className="text-muted mb-16 flex items-center justify-between gap-6 text-xs font-black tracking-[0.18em] uppercase">
           <span className="inline-flex items-center gap-2">
             <span className="bg-accent size-2 rounded-full" aria-hidden="true" />
@@ -22,14 +22,18 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="grid gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-24">
+        <div className="grid gap-16 lg:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.8fr)] lg:items-end lg:gap-20">
           <MotionReveal>
             <div>
               <p className="text-accent mb-6 text-xs font-black tracking-[0.2em] uppercase">
                 Hello, I&apos;m Shayan Ali. A —
               </p>
-              <h1 className="text-foreground max-w-5xl text-6xl leading-[0.9] font-black tracking-[-0.075em] text-balance sm:text-7xl lg:text-[9rem]">
-                Developer who <span className="text-accent">builds.</span>
+              <h1 className="text-foreground max-w-5xl text-6xl leading-[0.86] font-black tracking-[-0.08em] text-balance sm:text-8xl lg:text-[10.5rem]">
+                <span className="block">Developer</span>
+                <span className="serif-italic text-foreground/80 block text-[1.06em] font-normal">
+                  who
+                </span>
+                <span className="text-accent block">builds.</span>
               </h1>
               <div className="text-muted mt-8 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[10px] font-bold tracking-[0.16em] uppercase">
                 <span>Design</span>
@@ -38,7 +42,7 @@ export function Hero() {
                 <span aria-hidden="true">/</span>
                 <span>Code</span>
               </div>
-              <p className="text-muted mt-10 max-w-2xl text-lg leading-8 md:text-xl">
+              <p className="text-muted mt-10 max-w-2xl text-lg leading-8 md:text-xl lg:max-w-xl">
                 I turn strong ideas into useful web products—clear on the surface,
                 dependable underneath, and built to keep moving after launch.
               </p>

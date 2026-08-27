@@ -11,7 +11,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Full-stack systems",
     description:
       "Typed application foundations that stay understandable as a product grows.",
-    skills: ["Node.js", "tRPC", "Prisma", "REST APIs"],
+    skills: ["Node.js", "tRPC", "Prisma", "REST APIs", "Laravel", "TALL stack"],
   },
   {
     title: "Data and delivery",
