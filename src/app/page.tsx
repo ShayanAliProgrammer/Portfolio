@@ -23,7 +23,7 @@ export default function HomePage() {
         name: siteConfig.name,
         jobTitle: "Full-stack developer",
         url: siteConfig.url,
-        image: `${siteConfig.url}/brand/shayan-pencil-art.webp`,
+        image: `${siteConfig.url}/brand/shayan-3d-portrait.webp`,
         sameAs: [siteConfig.social.github],
         knowsAbout: [
           "React",

@@ -11,13 +11,16 @@ export function PortraitCard() {
         aria-hidden="true"
       />
       <div className="relative grid grid-cols-[0.9fr_1.1fr] items-end gap-3 p-3">
-        <div className="border-line bg-background relative aspect-[0.82] overflow-hidden rounded-[1.5rem] border">
+        <span className="border-accent/40 bg-background/70 text-accent absolute top-5 right-5 z-10 rounded-full border px-2.5 py-1 font-mono text-[9px] font-bold tracking-[0.16em] uppercase backdrop-blur">
+          3D identity study
+        </span>
+        <div className="border-line bg-background group relative aspect-[0.82] overflow-hidden rounded-[1.5rem] border">
           <Image
-            src="/brand/shayan-pencil-art.webp"
-            alt="Pencil-art portrait of Shayan Ali in a tailored jacket"
+            src="/brand/shayan-3d-portrait.webp"
+            alt="3D-inspired portrait of Shayan Ali in a tailored jacket"
             fill
             sizes="(max-width: 1024px) 42vw, 280px"
-            className="object-cover object-[50%_24%] grayscale transition duration-500 hover:scale-105"
+            className="object-cover object-[50%_24%] grayscale transition duration-700 group-hover:scale-105"
           />
         </div>
         <div className="p-3 pb-5">

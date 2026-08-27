@@ -91,7 +91,7 @@ Edit the typed data files rather than placing repeated copy inside page componen
 
 The application does not scrape GitHub at request time. This is deliberate: a portfolio should present a controlled professional narrative, not change unexpectedly because a repository description or API response changed. Each project also has a crawlable `/work/[slug]` case-study route with structured CreativeWork metadata.
 
-The portrait logo lives at `public/brand/shayan-pencil-art.webp`. It is reused in the header, hero identity card, footer, and Person schema image. The motion layer is intentionally small: `motion/react` handles only meaningful entrance transitions and respects `prefers-reduced-motion`; it is not used for perpetual background animation.
+The brand assets live at `public/brand/`: `shayan-pencil-art.webp` is the small recognizable logo used in the header and footer, while `shayan-3d-portrait.webp` is the premium 3D-inspired hero and case-study identity visual. The 3D asset is kept under 90 KB and is reused through Next Image optimization. The motion layer is intentionally small: `motion/react` handles only meaningful entrance transitions and respects `prefers-reduced-motion`; it is not used for perpetual background animation.
 
 The homepage includes a visible FAQ and JSON-LD for Person, WebSite, and FAQPage. This is designed to make the portfolio easier for search engines and answer engines to understand while keeping the same content useful to human visitors.
 
