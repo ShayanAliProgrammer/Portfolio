@@ -8,18 +8,20 @@ export function ProjectsGrid({ allProjects = false }: { allProjects?: boolean })
   const visibleProjects = allProjects ? projects : featuredProjects;
 
   return (
-    <div className="grid gap-5 lg:grid-cols-3">
+    <div>
       {visibleProjects.length > 0 ? (
-        visibleProjects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))
+        <div>
+          {visibleProjects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
+        </div>
       ) : (
         <p className="border-line text-muted rounded-2xl border p-8">
           No projects are available yet.
         </p>
       )}
       {!allProjects && (
-        <div className="flex items-center lg:col-span-3 lg:justify-end">
+        <div className="flex justify-end pt-8">
           <Link
             href="/projects"
             className="text-accent-strong inline-flex items-center gap-2 text-sm font-black hover:underline"
