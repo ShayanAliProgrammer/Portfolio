@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ededed;
-  --surface: #0a0a0a;
-  --surface-strong: #151515;
-  --muted: #a1a1aa;
-  --line: #2a2a2a;
-  --accent: #ff2d20;
-  --accent-strong: #ff6b61;
+  --background: #f7f1e8;
+  --foreground: #1f242b;
+  --surface: #fffdf8;
+  --surface-strong: #e6f0f5;
+  --muted: #66717c;
+  --line: #d9d4ca;
+  --accent: #ef3d32;
+  --accent-strong: #c82720;
   --accent-foreground: #ffffff;
-  --secondary: #f5b5ae;
+  --secondary: #487ea4;
 }
 
-.light {
-  --background: #fafafa;
-  --foreground: #171717;
-  --surface: #ffffff;
-  --surface-strong: #f1f1f1;
-  --muted: #52525b;
-  --line: #d4d4d4;
-  --accent: #e6291d;
-  --accent-strong: #c51f16;
-  --accent-foreground: #ffffff;
-  --secondary: #b42318;
+.dark {
+  --background: #080a0c;
+  --foreground: #f4f0e9;
+  --surface: #101419;
+  --surface-strong: #171e25;
+  --muted: #a4adb5;
+  --line: #2b333b;
+  --accent: #ff574d;
+  --accent-strong: #ff8077;
+  --accent-foreground: #170a08;
+  --secondary: #8bc4e5;
 }
 
 @theme inline {
@@ -89,27 +89,27 @@ h3 {
   position: fixed;
   inset: 0;
   z-index: 50;
-  opacity: 0.05;
+  opacity: 0.035;
   background-image: radial-gradient(var(--foreground) 0.55px, transparent 0.55px);
   background-size: 7px 7px;
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
 }
 
-.light .texture {
-  mix-blend-mode: multiply;
-  opacity: 0.035;
+.dark .texture {
+  mix-blend-mode: screen;
+  opacity: 0.045;
 }
 
 .grid-surface {
   background-image:
     linear-gradient(
       to right,
-      color-mix(in srgb, var(--line) 45%, transparent) 1px,
+      color-mix(in srgb, var(--line) 50%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--line) 45%, transparent) 1px,
+      color-mix(in srgb, var(--line) 50%, transparent) 1px,
       transparent 1px
     );
   background-size: 42px 42px;
@@ -118,15 +118,104 @@ h3 {
 .spotlight {
   background-image:
     radial-gradient(
-      circle at 80% 10%,
-      color-mix(in srgb, var(--accent) 18%, transparent),
-      transparent 32%
+      circle at 78% 4%,
+      color-mix(in srgb, var(--secondary) 24%, transparent),
+      transparent 30%
     ),
     radial-gradient(
-      circle at 10% 80%,
-      color-mix(in srgb, var(--secondary) 12%, transparent),
-      transparent 30%
+      circle at 12% 88%,
+      color-mix(in srgb, var(--accent) 13%, transparent),
+      transparent 28%
     );
+}
+
+.hero-scene {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      circle at 78% 16%,
+      color-mix(in srgb, #f5ca4a 50%, transparent) 0 5%,
+      transparent 5.2%
+    ),
+    radial-gradient(
+      ellipse at 86% 20%,
+      color-mix(in srgb, var(--surface) 88%, transparent) 0 8%,
+      transparent 8.3%
+    ),
+    radial-gradient(
+      ellipse at 94% 26%,
+      color-mix(in srgb, var(--surface) 88%, transparent) 0 7%,
+      transparent 7.3%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--secondary) 76%, var(--background)),
+      var(--background) 72%
+    );
+}
+
+.dark .hero-scene {
+  background-image:
+    radial-gradient(
+      circle at 78% 16%,
+      color-mix(in srgb, #f5ca4a 46%, transparent) 0 5%,
+      transparent 5.2%
+    ),
+    radial-gradient(
+      ellipse at 86% 20%,
+      color-mix(in srgb, var(--surface) 88%, transparent) 0 8%,
+      transparent 8.3%
+    ),
+    radial-gradient(
+      ellipse at 94% 26%,
+      color-mix(in srgb, var(--surface) 88%, transparent) 0 7%,
+      transparent 7.3%
+    ),
+    linear-gradient(135deg, #1e3d50, var(--background) 72%);
+}
+
+.hero-cloud {
+  position: absolute;
+  width: 16rem;
+  height: 4rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  filter: blur(0.5px);
+  opacity: 0.9;
+}
+
+.hero-cloud::before,
+.hero-cloud::after {
+  position: absolute;
+  content: "";
+  border-radius: 999px;
+  background: inherit;
+}
+
+.hero-cloud::before {
+  left: 2.5rem;
+  bottom: 1.2rem;
+  width: 6rem;
+  height: 4rem;
+}
+
+.hero-cloud::after {
+  right: 2.5rem;
+  bottom: 0.8rem;
+  width: 5rem;
+  height: 3rem;
+}
+
+.hero-cloud-one {
+  right: -3rem;
+  top: 13rem;
+}
+
+.hero-cloud-two {
+  left: -7rem;
+  bottom: 4rem;
+  transform: scale(0.75);
+  opacity: 0.65;
 }
 
 @media (prefers-reduced-motion: reduce) {

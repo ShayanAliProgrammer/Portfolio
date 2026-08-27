@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Menu, Phone } from "lucide-react";
+import { ArrowUpRight, Menu, MapPin, Phone } from "lucide-react";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { navigation, siteConfig } from "@/data/site";
@@ -11,14 +11,14 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ initialTheme }: SiteHeaderProps) {
   return (
-    <header className="border-line/80 bg-background/85 sticky top-0 z-40 border-b backdrop-blur-xl">
-      <div className="mx-auto flex min-h-18 max-w-7xl items-center justify-between gap-6 px-5 md:px-8">
+    <header className="sticky top-0 z-40 bg-transparent px-3 py-3 md:px-5 md:py-5">
+      <div className="border-line/80 bg-surface/80 mx-auto flex min-h-14 max-w-7xl items-center justify-between gap-4 rounded-full border px-3 shadow-lg shadow-black/5 backdrop-blur-xl md:px-5">
         <Link
           href="/#home"
           className="group flex items-center gap-3"
           aria-label="Shayan Ali home"
         >
-          <span className="border-accent bg-accent text-accent-foreground grid size-10 place-items-center rounded-xl border text-sm font-black transition-transform duration-200 group-hover:-rotate-6">
+          <span className="border-accent bg-accent text-accent-foreground grid size-9 place-items-center rounded-full border font-mono text-xs font-black transition-transform duration-200 group-hover:-rotate-12">
             SA
           </span>
           <span className="hidden sm:block">
@@ -26,7 +26,7 @@ export function SiteHeader({ initialTheme }: SiteHeaderProps) {
               {siteConfig.shortName}
             </span>
             <span className="text-muted block text-[10px] font-bold tracking-[0.16em] uppercase">
-              Web engineer
+              {siteConfig.location}
             </span>
           </span>
         </Link>
@@ -35,32 +35,33 @@ export function SiteHeader({ initialTheme }: SiteHeaderProps) {
           className="hidden items-center gap-1 lg:flex"
           aria-label="Primary navigation"
         >
-          {navigation.map((item) => (
+          {navigation.map((item, index) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-muted hover:bg-surface-strong hover:text-foreground rounded-lg px-3 py-2 text-sm transition"
+              className="text-muted hover:bg-surface-strong hover:text-foreground rounded-full px-3 py-2 text-sm transition"
             >
+              <span className="text-accent mr-1 font-mono text-[9px]">0{index + 1}</span>
               {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <span className="border-line text-muted hidden items-center gap-2 rounded-full border px-3 py-2 text-xs font-bold xl:inline-flex">
-            <span className="bg-accent size-2 rounded-full" aria-hidden="true" />
-            Available for work
+          <span className="text-muted hidden items-center gap-1.5 text-xs font-bold xl:inline-flex">
+            <MapPin size={13} aria-hidden="true" />
+            {siteConfig.location}
           </span>
           <ThemeToggle initialTheme={initialTheme} />
           <a
             href={`tel:${siteConfig.phone}`}
-            className="bg-accent text-accent-foreground hover:bg-accent-strong hidden items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-black transition sm:inline-flex"
+            className="bg-accent text-accent-foreground hover:bg-accent-strong hidden items-center gap-2 rounded-full px-4 py-2.5 text-sm font-black transition sm:inline-flex"
           >
-            <Phone size={15} aria-hidden="true" />
-            Let&apos;s talk
+            <Phone size={14} aria-hidden="true" />
+            Work with me
           </a>
           <details className="relative lg:hidden">
-            <summary className="border-line bg-surface text-foreground grid size-10 cursor-pointer list-none place-items-center rounded-lg border [&::-webkit-details-marker]:hidden">
+            <summary className="border-line bg-surface text-foreground grid size-10 cursor-pointer list-none place-items-center rounded-full border [&::-webkit-details-marker]:hidden">
               <Menu size={18} aria-hidden="true" />
               <span className="sr-only">Open navigation menu</span>
             </summary>
@@ -81,7 +82,7 @@ export function SiteHeader({ initialTheme }: SiteHeaderProps) {
                 href={`tel:${siteConfig.phone}`}
                 className="bg-accent text-accent-foreground mt-1 flex items-center justify-between rounded-xl px-4 py-3 text-sm font-black"
               >
-                Let&apos;s talk
+                Work with me
                 <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </nav>
