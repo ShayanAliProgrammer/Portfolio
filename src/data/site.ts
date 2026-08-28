@@ -16,5 +16,6 @@ export const navigation = [
   { label: "Home", href: "/#home", external: false },
   { label: "About", href: "/#about", external: false },
   { label: "Selected work", href: "/#work", external: false },
+  { label: "Stack", href: "/#stack", external: false },
   { label: "Contact", href: "/#contact", external: false },
 ] as const;

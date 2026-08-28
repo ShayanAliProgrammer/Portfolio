@@ -4,8 +4,8 @@ import { FAQ, faqSchema } from "@/components/portfolio/faq";
 import { Capabilities } from "@/components/portfolio/capabilities";
 import { Hero } from "@/components/portfolio/hero";
 import { Process } from "@/components/portfolio/process";
-import { ProofStrip } from "@/components/portfolio/proof-strip";
 import { SelectedWork } from "@/components/portfolio/selected-work";
+import { Stack } from "@/components/portfolio/stack";
 import { siteConfig } from "@/data/site";
 
 const reasonsToHire = [
@@ -51,10 +51,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
       <Hero />
-      <ProofStrip />
+      <SelectedWork />
       <Capabilities />
       <Process />
-      <SelectedWork />
+      <Stack />
       <section id="contact" className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
         <div className="spotlight border-accent/40 bg-surface relative overflow-hidden rounded-3xl border p-7 shadow-[0_24px_80px_-35px_var(--accent)] md:p-12">
           <div className="grid-surface absolute inset-0 opacity-30" aria-hidden="true" />
