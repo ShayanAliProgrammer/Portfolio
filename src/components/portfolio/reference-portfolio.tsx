@@ -197,21 +197,57 @@ export function ReferencePortfolio({ initialTheme }: ReferencePortfolioProps) {
       }
       animationFrame = window.requestAnimationFrame(cursorLoop);
     };
-    if (finePointer && !reduced && cursor) {
-      body.classList.add("cursor-on");
-      window.addEventListener("mousemove", onMouseMove, { passive: true });
-      cursorLoop();
-    }
-
     const previewImage = preview?.querySelector<HTMLImageElement>("img");
     const previewCaption = preview?.querySelector<HTMLElement>(".pv-cap");
+    let previewTargetX = window.innerWidth / 2;
+    let previewTargetY = window.innerHeight / 2;
+    let previewX = previewTargetX;
+    let previewY = previewTargetY;
+    let previewVisible = false;
+    const updatePreviewPosition = (event: MouseEvent) => {
+      previewTargetX = event.clientX;
+      previewTargetY = event.clientY;
+    };
+    const previewLoop = () => {
+      previewX += (previewTargetX - previewX) * 0.11;
+      previewY += (previewTargetY - previewY) * 0.11;
+      if (preview && previewVisible) {
+        const width = preview.offsetWidth || Math.min(360, window.innerWidth * 0.3);
+        const height = preview.offsetHeight || width * 0.75;
+        const margin = 20;
+        const offsetX = 28;
+        const offsetY = 24;
+        const left = Math.max(
+          margin,
+          Math.min(previewX + offsetX, window.innerWidth - width - margin),
+        );
+        const top = Math.max(
+          margin,
+          Math.min(previewY + offsetY, window.innerHeight - height - margin),
+        );
+        preview.style.left = `${left}px`;
+        preview.style.top = `${top}px`;
+      }
+      animationFrame = window.requestAnimationFrame(previewLoop);
+    };
     const onProjectEnter = (event: Event) => {
       const row = event.currentTarget as HTMLElement;
       if (previewImage) previewImage.src = row.dataset.preview || "";
       if (previewCaption) previewCaption.textContent = row.dataset.cap || "";
+      previewVisible = true;
       preview?.classList.add("on");
     };
-    const onProjectLeave = () => preview?.classList.remove("on");
+    const onProjectLeave = () => {
+      previewVisible = false;
+      preview?.classList.remove("on");
+    };
+    if (finePointer && !reduced && cursor) {
+      body.classList.add("cursor-on");
+      window.addEventListener("mousemove", onMouseMove, { passive: true });
+      window.addEventListener("mousemove", updatePreviewPosition, { passive: true });
+      cursorLoop();
+      previewLoop();
+    }
     const projectRows = document.querySelectorAll<HTMLElement>(".project-row");
     if (finePointer && !reduced) {
       projectRows.forEach((row) => {
@@ -252,6 +288,7 @@ export function ReferencePortfolio({ initialTheme }: ReferencePortfolioProps) {
       revealObserver?.disconnect();
       scrambleObserver?.disconnect();
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mousemove", updatePreviewPosition);
       window.cancelAnimationFrame(animationFrame);
       projectRows.forEach((row) => {
         row.removeEventListener("mouseenter", onProjectEnter);
