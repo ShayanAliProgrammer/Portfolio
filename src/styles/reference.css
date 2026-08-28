@@ -13,7 +13,7 @@
   --font-display: "Space Grotesk Variable", system-ui, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
-  --pad-x: clamp(1.25rem, 5vw, 5rem);
+  --pad-x: clamp(1.5rem, 6vw, 7rem);
   --sect-y: clamp(6rem, 14vh, 10rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -98,6 +98,21 @@ h3 {
 section {
   scroll-margin-top: 5.5rem;
   position: relative;
+}
+.container {
+  width: min(1240px, calc(100% - (2 * var(--pad-x))));
+  margin-inline: auto;
+  min-width: 0;
+}
+#main,
+.container,
+.sect-head,
+.hero-lower,
+.about-grid,
+.project-row,
+.stack-row,
+.contact-facts {
+  min-width: 0;
 }
 
 /* atmosphere */
@@ -1287,6 +1302,23 @@ footer .f-mid {
   }
 }
 @media (max-width: 720px) {
+  .container {
+    width: min(100% - 2rem, 1240px);
+  }
+  .hero-eyebrow,
+  .head-status,
+  .hero-meta,
+  .contact-facts,
+  .contact-promises {
+    min-width: 0;
+  }
+  .hero-eyebrow > span,
+  .head-note,
+  .hero-intro,
+  .contact-sub,
+  .val {
+    overflow-wrap: anywhere;
+  }
   .hero-lower {
     grid-template-columns: 1fr;
   }
@@ -1340,6 +1372,18 @@ footer .f-mid {
     display: none;
   }
 }
+@media (max-width: 420px) {
+  :root {
+    --pad-x: 1rem;
+  }
+  #site-head {
+    padding-inline: 1rem;
+  }
+  .container {
+    width: calc(100% - 2rem);
+  }
+}
+
 @media (min-width: 721px) {
   .pr-thumb {
     display: none;
