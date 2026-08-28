@@ -2,6 +2,7 @@
   "name": "shayan-portfolio",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "bun@1.4.0",
   "type": "module",
   "engines": {
     "node": ">=20.9.0"
@@ -12,7 +13,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run lint",
+    "check": "bun run typecheck && bun run lint",
     "format:check": "prettier --check .",
     "format:write": "prettier --write ."
   },

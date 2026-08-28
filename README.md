@@ -79,11 +79,11 @@ The three-state selector lives in the reference footer. Its buttons expose acces
 
 ## Local development
 
-Requirements: Node.js 20.9 or newer and npm 10 or newer.
+Requirements: Bun 1.4 or newer and Node.js 20.9 or newer.
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in a browser.
@@ -93,16 +93,16 @@ Open [http://localhost:3000](http://localhost:3000) in a browser.
 Run the full quality gate before opening a pull request:
 
 ```bash
-npm run check
-npm run format:check
-npm run build
+bun run check
+bun run format:check
+bun run build
 ```
 
 The combined check runs TypeScript and ESLint:
 
 ```bash
-npm run typecheck
-npm run lint
+bun run typecheck
+bun run lint
 ```
 
 ## Updating portfolio content
