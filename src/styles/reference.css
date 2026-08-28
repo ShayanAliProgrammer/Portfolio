@@ -8,8 +8,8 @@
   --paper-faint: #6d685d;
   --line: rgba(233, 228, 216, 0.13);
   --line-strong: rgba(233, 228, 216, 0.28);
-  --accent: #ff5a26;
-  --accent-soft: rgba(255, 90, 38, 0.14);
+  --accent: #4f8cff;
+  --accent-soft: rgba(79, 140, 255, 0.16);
   --font-display: "Space Grotesk Variable", system-ui, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
@@ -1369,8 +1369,8 @@ footer .f-mid {
   --paper-faint: #92979c;
   --line: rgba(16, 18, 22, 0.14);
   --line-strong: rgba(16, 18, 22, 0.28);
-  --accent: #e9562d;
-  --accent-soft: rgba(233, 86, 45, 0.14);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.14);
 }
 @media (prefers-color-scheme: dark) {
   .system {
@@ -1382,15 +1382,17 @@ footer .f-mid {
     --paper-faint: #686c73;
     --line: rgba(236, 233, 225, 0.14);
     --line-strong: rgba(236, 233, 225, 0.28);
-    --accent: #ff5a2d;
-    --accent-soft: rgba(255, 90, 45, 0.14);
+    --accent: #4f8cff;
+    --accent-soft: rgba(79, 140, 255, 0.16);
   }
 }
 .reference-theme-control {
-  position: fixed;
-  top: 1rem;
-  right: var(--pad-x);
-  z-index: 115;
+  position: static;
+  z-index: 1;
+}
+#theme-slot {
+  display: flex;
+  align-items: center;
 }
 .reference-theme-control > div {
   display: inline-flex;

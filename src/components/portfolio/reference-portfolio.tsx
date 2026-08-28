@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { referenceMarkup } from "@/components/portfolio/reference-markup";
@@ -11,7 +12,10 @@ type ReferencePortfolioProps = {
 };
 
 export function ReferencePortfolio({ initialTheme }: ReferencePortfolioProps) {
+  const [themeSlot, setThemeSlot] = useState<HTMLElement | null>(null);
+
   useEffect(() => {
+    queueMicrotask(() => setThemeSlot(document.getElementById("theme-slot")));
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
     const body = document.body;
@@ -263,10 +267,15 @@ export function ReferencePortfolio({ initialTheme }: ReferencePortfolioProps) {
 
   return (
     <>
-      <div className="reference-theme-control" aria-label="Theme controls">
-        <ThemeToggle initialTheme={initialTheme} />
-      </div>
       <div dangerouslySetInnerHTML={{ __html: referenceMarkup }} />
+      {themeSlot
+        ? createPortal(
+            <div className="reference-theme-control" aria-label="Theme controls">
+              <ThemeToggle initialTheme={initialTheme} />
+            </div>,
+            themeSlot,
+          )
+        : null}
     </>
   );
 }
