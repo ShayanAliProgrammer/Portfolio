@@ -1,6 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createRoot, type Root } from "react-dom/client";
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  ArrowUpRightIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 import { createPortal } from "react-dom";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -16,6 +23,21 @@ export function ReferencePortfolio({ initialTheme }: ReferencePortfolioProps) {
 
   useEffect(() => {
     queueMicrotask(() => setThemeSlot(document.getElementById("theme-slot")));
+    const iconRoots: Root[] = [];
+    const iconMap = {
+      "arrow-down": ArrowDownIcon,
+      "arrow-up": ArrowUpIcon,
+      "arrow-up-right": ArrowUpRightIcon,
+      sparkles: SparklesIcon,
+    } as const;
+    document.querySelectorAll<HTMLElement>("[data-hero-icon]").forEach((slot) => {
+      const Icon = iconMap[slot.dataset.heroIcon as keyof typeof iconMap];
+      if (!Icon) return;
+      const root = createRoot(slot);
+      root.render(<Icon className="reference-icon" aria-hidden="true" />);
+      iconRoots.push(root);
+    });
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
     const body = document.body;
@@ -290,6 +312,7 @@ export function ReferencePortfolio({ initialTheme }: ReferencePortfolioProps) {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousemove", updatePreviewPosition);
       window.cancelAnimationFrame(animationFrame);
+      iconRoots.forEach((root) => root.unmount());
       projectRows.forEach((row) => {
         row.removeEventListener("mouseenter", onProjectEnter);
         row.removeEventListener("mouseleave", onProjectLeave);

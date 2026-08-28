@@ -83,7 +83,15 @@ h3 {
   letter-spacing: 0;
   text-transform: none;
 }
-.container {
+.reference-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: none;
+  vertical-align: -0.14em;
+  stroke-width: 1.8;
+}
+.serif-i::after {
   width: min(1240px, 100% - 2 * var(--pad-x));
   margin-inline: auto;
 }
@@ -356,7 +364,7 @@ body.cursor-on #cursor {
   flex-direction: column;
   gap: 9px;
   padding: 0.8rem 0.35rem;
-  z-index: 130;
+  z-index: 220;
 }
 #menu-btn span {
   display: block;
@@ -472,6 +480,12 @@ body.loaded .hero-title .line > span {
 }
 .hero-intro .serif-i {
   color: var(--accent);
+  letter-spacing: 0.045em;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
 }
 .hero-meta {
   display: grid;
