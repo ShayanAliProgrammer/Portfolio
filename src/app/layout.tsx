@@ -8,11 +8,10 @@ import {
   Space_Mono,
 } from "next/font/google";
 
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/data/site";
 import { THEME_COOKIE, normalizeTheme } from "@/lib/theme";
 import "@/styles/globals.css";
+import "@/styles/reference.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -88,12 +87,7 @@ export default async function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${instrumentSerif.variable} ${theme}`}
     >
-      <body>
-        <div className="texture" aria-hidden="true" />
-        <SiteHeader initialTheme={theme} />
-        {children}
-        <SiteFooter />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
