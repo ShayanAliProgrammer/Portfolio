@@ -526,10 +526,15 @@ body.loaded .hero-title .line > span {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.7rem;
+  min-height: 48px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.25;
+  text-align: center;
   text-transform: uppercase;
   padding: 1rem 1.6rem;
   border-radius: 999px;
@@ -561,7 +566,7 @@ body.loaded .hero-title .line > span {
 .btn-solid {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--ink);
+  color: var(--paper);
 }
 .btn-solid::before {
   background: var(--paper);
@@ -1132,12 +1137,17 @@ body.loaded .hero-title .line > span {
 .contact-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  min-height: 52px;
   font-family: var(--font-mono);
-  font-size: clamp(0.72rem, 1.1vw, 0.85rem);
-  letter-spacing: 0.2em;
+  font-size: clamp(0.74rem, 1.1vw, 0.88rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.25;
+  text-align: center;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--paper);
   background: var(--accent);
   border-radius: 999px;
   padding: 1.3rem 2.2rem;
@@ -1147,6 +1157,7 @@ body.loaded .hero-title .line > span {
 }
 .contact-cta:hover {
   background: var(--paper);
+  color: var(--ink);
 }
 .contact-cta .arr {
   transition: transform 0.35s var(--ease);
@@ -1302,6 +1313,17 @@ footer .f-mid {
   }
 }
 @media (max-width: 720px) {
+  .btn,
+  .contact-cta {
+    max-width: 100%;
+    white-space: normal;
+  }
+  .hero-cta {
+    align-items: stretch;
+  }
+  .hero-cta .btn {
+    width: 100%;
+  }
   .container {
     width: min(100% - 2rem, 1240px);
   }
