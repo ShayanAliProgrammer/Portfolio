@@ -354,24 +354,25 @@ body.cursor-on #cursor {
 #menu-btn {
   display: none;
   flex-direction: column;
-  gap: 6px;
-  padding: 0.6rem 0.2rem;
+  gap: 9px;
+  padding: 0.8rem 0.35rem;
   z-index: 130;
 }
 #menu-btn span {
   display: block;
-  width: 26px;
-  height: 1.5px;
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
   background: var(--paper);
   transition:
     transform 0.45s var(--ease),
     opacity 0.3s;
 }
 body.menu-open #menu-btn span:first-child {
-  transform: translateY(4px) rotate(45deg);
+  transform: translateY(6.5px) rotate(45deg);
 }
 body.menu-open #menu-btn span:last-child {
-  transform: translateY(-3.5px) rotate(-45deg);
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 #mobile-menu {
   position: fixed;
