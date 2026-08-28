@@ -257,7 +257,7 @@ body.cursor-on #cursor {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 2147483647;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -362,25 +362,25 @@ body.cursor-on #cursor {
 #menu-btn {
   display: none;
   flex-direction: column;
-  gap: 9px;
-  padding: 0.8rem 0.35rem;
-  z-index: 220;
+  gap: 6px;
+  padding: 0.6rem 0.25rem;
+  z-index: 2147483647;
 }
 #menu-btn span {
   display: block;
-  width: 44px;
-  height: 4px;
+  width: 30px;
+  height: 2px;
   border-radius: 999px;
-  background: var(--paper);
+  background: var(--paper-dim);
   transition:
     transform 0.45s var(--ease),
     opacity 0.3s;
 }
 body.menu-open #menu-btn span:first-child {
-  transform: translateY(6.5px) rotate(45deg);
+  transform: translateY(4px) rotate(45deg);
 }
 body.menu-open #menu-btn span:last-child {
-  transform: translateY(-6.5px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
 }
 #mobile-menu {
   position: fixed;
