@@ -1,0 +1,6 @@
+<?php
+namespace App\Filament\Resources\SchoolClasses\Tables;
+use Filament\Actions\BulkActionGroup; use Filament\Actions\DeleteBulkAction; use Filament\Actions\EditAction; use Filament\Tables\Columns\TextColumn; use Filament\Tables\Filters\TernaryFilter; use Filament\Tables\Table;
+class SchoolClassesTable { public static function configure(Table $table): Table { return $table->columns([
+    TextColumn::make('name')->searchable()->sortable(), TextColumn::make('grade_level')->label('Grade'), TextColumn::make('room_number')->label('Room'), TextColumn::make('teacher.full_name')->label('Homeroom teacher')->state(fn($record) => $record->teacher?->full_name ?? 'Unassigned'), TextColumn::make('students_count')->counts('students')->label('Students'), TextColumn::make('capacity')->label('Capacity'), TextColumn::make('is_active')->badge()->formatStateUsing(fn($state) => $state ? 'Active' : 'Archived')->color(fn($state) => $state ? 'success' : 'gray'),
+])->filters([TernaryFilter::make('is_active')])->recordActions([EditAction::make()])->toolbarActions([BulkActionGroup::make([DeleteBulkAction::make()])]); } }

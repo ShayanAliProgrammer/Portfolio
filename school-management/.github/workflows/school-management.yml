@@ -1,0 +1,19 @@
+name: School management quality gate
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: school-management } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: '8.3', extensions: mbstring, pdo_sqlite, sqlite3, dom, curl, zip }
+      - uses: oven-sh/setup-bun@v2
+        with: { bun-version: latest }
+      - run: composer install --no-interaction --prefer-dist --no-progress
+      - run: cp .env.example .env && php artisan key:generate
+      - run: touch database/database.sqlite
+      - run: php artisan migrate --force
+      - run: php artisan test
+      - run: bun install
+      - run: bun run build

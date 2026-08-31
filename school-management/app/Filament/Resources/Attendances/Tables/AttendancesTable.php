@@ -1,0 +1,6 @@
+<?php
+namespace App\Filament\Resources\Attendances\Tables;
+use Filament\Actions\BulkActionGroup; use Filament\Actions\DeleteBulkAction; use Filament\Actions\EditAction; use Filament\Tables\Columns\TextColumn; use Filament\Tables\Filters\SelectFilter; use Filament\Tables\Table;
+class AttendancesTable { public static function configure(Table $table): Table { return $table->defaultSort('date','desc')->columns([
+    TextColumn::make('date')->date()->sortable(), TextColumn::make('student.full_name')->label('Student')->state(fn($record) => $record->student?->full_name)->searchable(), TextColumn::make('student.schoolClass.name')->label('Class'), TextColumn::make('status')->badge()->color(fn($state) => match($state){'present'=>'success','late'=>'warning','absent'=>'danger','excused'=>'info',default=>'gray'}), TextColumn::make('notes')->limit(40)->toggleable(),
+])->filters([SelectFilter::make('status')->options(['present'=>'Present','late'=>'Late','absent'=>'Absent','excused'=>'Excused'])])->recordActions([EditAction::make()])->toolbarActions([BulkActionGroup::make([DeleteBulkAction::make()])]); } }
